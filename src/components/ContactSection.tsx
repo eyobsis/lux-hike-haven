@@ -108,10 +108,10 @@ export default function ContactSection() {
                     <div>
                       <h4 className="font-medium text-foreground">Email</h4>
                       <a
-                        href="mailto:samaha.orl@gmail.com"
+                        href="mailto:luxtraveler@proton.me"
                         className="text-sm text-primary hover:underline"
                       >
-                        samaha.orl@gmail.com
+                        luxtraveler@proton.me
                       </a>
                     </div>
                   </div>
