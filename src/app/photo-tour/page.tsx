@@ -1,9 +1,24 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import { getAirbnbGalleryUrl } from "@/lib/links";
 import Link from "next/link";
+import type { Metadata } from "next";
+import { absoluteUrl, seoRoutes } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Apartment Photo Tour in Grevenmacher",
+  description:
+    "Explore the full apartment photo tour before your hiking trip to Luxembourg.",
+  alternates: {
+    canonical: seoRoutes.photoTour,
+  },
+  openGraph: {
+    title: "Apartment Photo Tour in Grevenmacher",
+    description:
+      "See all rooms and amenities before booking your hiking stay in Luxembourg.",
+    url: absoluteUrl(seoRoutes.photoTour),
+  },
+};
 
 type Category = { id: number; title: string; image: string };
 

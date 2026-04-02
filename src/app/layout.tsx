@@ -4,31 +4,35 @@ import Providers from "./providers";
 import { ReactNode } from "react";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/Footer";
+import { absoluteUrl, seoRoutes, siteConfig } from "@/lib/site";
 
-// ✅ Multi-device viewport settings
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5, // allow pinch zoom for accessibility
+  maximumScale: 5,
   userScalable: true,
-  themeColor: "#0f766e", // Tailwind teal-700
+  themeColor: "#0f766e",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://luxembourghikinghaven.com"),
-  title:
-    "Hiking in Luxembourg | Best Trails Guide + Accommodation | Luxembourg Hiking Haven",
-  description:
-    "Discover the best hiking trails in Luxembourg with downloadable maps. Stay in our Grevenmacher apartment – the perfect base for your outdoor adventure.",
-  authors: [{ name: "Luxembourg Hiking Haven" }],
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: "Lux Traveler | Hiking in Luxembourg and Stay in Grevenmacher",
+    template: "%s | Lux Traveler",
+  },
+  description: siteConfig.description,
+  authors: [{ name: siteConfig.brandName }],
   keywords: [
+    "wandelen in Luxemburg",
+    "wandelroutes Luxemburg",
     "hiking in Luxembourg",
-    "Luxembourg hiking trails",
+    "hiking in Luxembourg",
+    "luxembourg hiking trails",
     "hiking accommodation Luxembourg",
-    "Grevenmacher apartment",
+    "apartment Grevenmacher",
     "Luxembourg nature trails",
-    "hiking maps Luxembourg",
-    "outdoor adventure Luxembourg",
+    "wandelweekend Luxemburg",
+    "where to stay for hiking in Luxembourg",
   ],
   robots: {
     index: true,
@@ -41,22 +45,21 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  category: "travel",
   alternates: {
-    canonical: "https://luxembourghikinghaven.com",
+    canonical: seoRoutes.home,
   },
   openGraph: {
-    title:
-      "Hiking in Luxembourg | Best Trails Guide + Accommodation | Luxembourg Hiking Haven",
-    description:
-      "Your ultimate guide to hiking in Luxembourg with trail maps, local tips, and accommodation in Grevenmacher.",
-    url: "https://luxembourghikinghaven.com",
-    siteName: "Luxembourg Hiking Haven",
+    title: "Hiking in Luxembourg and Stay in Grevenmacher",
+    description: siteConfig.description,
+    url: absoluteUrl(seoRoutes.home),
+    siteName: siteConfig.brandName,
     images: [
       {
-        url: "/images/og-hiking.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Scenic hiking trail in Luxembourg with lush green forest",
+        url: siteConfig.defaultOgImage,
+        width: 1536,
+        height: 1024,
+        alt: "Apartment base for hiking holidays in Luxembourg",
       },
     ],
     locale: "en_US",
@@ -64,16 +67,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@luxhiking",
-    title:
-      "Hiking in Luxembourg | Best Trails Guide + Accommodation | Luxembourg Hiking Haven",
-    description:
-      "Plan your hiking trip in Luxembourg with our trail maps and stay in Grevenmacher for the perfect outdoor adventure.",
-    images: ["/images/og-hiking.jpg"],
+    title: "Wandelen in Luxemburg | Hiking in Luxembourg",
+    description: siteConfig.description,
+    images: [siteConfig.defaultOgImage],
   },
   icons: {
     icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
 };
@@ -82,25 +81,30 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* Local SEO meta */}
         <meta name="geo.region" content="LU" />
         <meta name="geo.placename" content="Grevenmacher, Luxembourg" />
         <meta name="geo.position" content="49.6805;6.4406" />
         <meta name="ICBM" content="49.6805, 6.4406" />
 
-        {/* JSON-LD structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
               {
                 "@context": "https://schema.org",
-                "@type": ["TouristAttraction", "LodgingBusiness"],
-                name: "Luxembourg Hiking Haven",
+                "@type": "Organization",
+                name: siteConfig.brandName,
+                url: siteConfig.url,
+                logo: absoluteUrl("/favicon.ico"),
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "LodgingBusiness",
+                name: siteConfig.brandName,
                 description:
-                  "Premium apartment accommodation and hiking guide service in Grevenmacher, Luxembourg. Perfect base for exploring Luxembourg's best hiking trails.",
-                url: "https://luxembourghikinghaven.com",
-                image: "https://luxembourghikinghaven.com/images/og-hiking.jpg",
+                  "Apartment accommodation in Grevenmacher with direct access to top hiking areas in Luxembourg.",
+                url: absoluteUrl(seoRoutes.home),
+                image: absoluteUrl(siteConfig.defaultOgImage),
                 address: {
                   "@type": "PostalAddress",
                   addressLocality: "Grevenmacher",
@@ -111,7 +115,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   latitude: "49.6805",
                   longitude: "6.4406",
                 },
-                touristType: ["Hikers", "Nature Lovers", "Outdoor Enthusiasts"],
+                areaServed: ["LU", "NL", "BE", "DE"],
+                knowsLanguage: ["en", "nl", "fr", "de"],
               },
             ]),
           }}

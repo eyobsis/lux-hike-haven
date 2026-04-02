@@ -1,0 +1,127 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { hikingRoutes } from "@/lib/hiking-routes";
+import { absoluteUrl, seoRoutes } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Wandelroutes Luxemburg | Afstanden, duur en niveau",
+  description:
+    "Bekijk de beste wandelroutes in Luxemburg met afstand, moeilijkheid en praktische informatie voor Nederlandse toeristen.",
+  keywords: [
+    "wandelroutes Luxemburg",
+    "beste wandelroutes Luxemburg",
+    "Mullerthal route",
+    "wandelen Vianden",
+  ],
+  alternates: {
+    canonical: seoRoutes.nlTrails,
+    languages: {
+      "nl-NL": seoRoutes.nlTrails,
+      en: seoRoutes.enTrails,
+      "x-default": seoRoutes.nlTrails,
+    },
+  },
+  openGraph: {
+    title: "Wandelroutes Luxemburg | Routeoverzicht",
+    description:
+      "Routeoverzicht met afstand, duur en niveau voor wandelen in Luxemburg.",
+    url: absoluteUrl(seoRoutes.nlTrails),
+    locale: "nl_NL",
+  },
+};
+
+export default function DutchTrailsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Wandelroutes Luxemburg",
+    itemListElement: hikingRoutes.map((route, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: route.name,
+      description: route.summaryNl,
+    })),
+  };
+
+  return (
+    <main lang="nl-NL" className="bg-background pt-24 pb-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+        <nav className="text-sm text-muted-foreground mb-6">
+          <Link href={seoRoutes.home} className="hover:text-primary">
+            Home
+          </Link>
+          <span className="mx-2">/</span>
+          <Link href={seoRoutes.nlHub} className="hover:text-primary">
+            Wandelen in Luxemburg
+          </Link>
+          <span className="mx-2">/</span>
+          <span>Wandelroutes Luxemburg</span>
+        </nav>
+
+        <header className="mb-10">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
+            Wandelroutes in Luxemburg: praktisch routeoverzicht
+          </h1>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Vergelijk populaire routes op afstand, duur en niveau. Zo kies je
+            snel de juiste wandeling voor jouw weekend of vakantie in Luxemburg.
+          </p>
+        </header>
+
+        <section className="overflow-x-auto rounded-xl border border-border bg-card">
+          <table className="w-full text-left">
+            <thead>
+              <tr className="border-b border-border bg-muted/40">
+                <th className="px-4 py-3 text-sm font-semibold">Route</th>
+                <th className="px-4 py-3 text-sm font-semibold">Regio</th>
+                <th className="px-4 py-3 text-sm font-semibold">Afstand</th>
+                <th className="px-4 py-3 text-sm font-semibold">Duur</th>
+                <th className="px-4 py-3 text-sm font-semibold">Niveau</th>
+              </tr>
+            </thead>
+            <tbody>
+              {hikingRoutes.map((route) => (
+                <tr key={route.id} className="border-b border-border/60">
+                  <td className="px-4 py-3 font-medium text-foreground">{route.name}</td>
+                  <td className="px-4 py-3 text-muted-foreground">{route.region}</td>
+                  <td className="px-4 py-3 text-muted-foreground">{route.distanceKm} km</td>
+                  <td className="px-4 py-3 text-muted-foreground">{route.duration}</td>
+                  <td className="px-4 py-3 text-muted-foreground">{route.difficulty}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+
+        <section className="mt-10 rounded-xl border border-border bg-card p-6">
+          <h2 className="text-2xl font-semibold text-foreground mb-3">
+            Volgende stap
+          </h2>
+          <p className="text-muted-foreground mb-4">
+            Combineer je routekeuze met een centrale verblijfslocatie voor een
+            efficiënte planning van je wandeltrip.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link href={seoRoutes.nlHub} className="font-semibold text-primary hover:text-primary-hover">
+              Terug naar Wandelen in Luxemburg
+            </Link>
+            <Link href={seoRoutes.nlWeekend} className="font-semibold text-primary hover:text-primary-hover">
+              Plan een wandelweekend
+            </Link>
+            <Link href={seoRoutes.nlStayNearTrails} className="font-semibold text-primary hover:text-primary-hover">
+              Overnachten bij wandelroutes
+            </Link>
+            <Link href={seoRoutes.enTrails} className="font-semibold text-primary hover:text-primary-hover">
+              View the English trail list
+            </Link>
+          </div>
+        </section>
+      </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+    </main>
+  );
+}

@@ -3,6 +3,7 @@
 import { Heart, Mountain } from "lucide-react";
 import Link from "next/link";
 import { getAirbnbUrl } from "@/lib/links";
+import { seoRoutes } from "@/lib/site";
 
 const Footer = () => {
   const airbnbUrl = getAirbnbUrl("footer");
@@ -15,7 +16,7 @@ const Footer = () => {
             <div className="flex items-center gap-2 mb-4">
               <Mountain className="h-6 w-6" />
               <Link href="/">
-                <h3 className="text-xl font-bold">Luxembourg Hiking Haven</h3>
+                <h3 className="text-xl font-bold">Lux Traveler</h3>
               </Link>
             </div>
             <p className="text-primary-foreground/80 text-sm">
@@ -28,46 +29,48 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Explore</h4>
             <div className="space-y-2 text-sm">
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("hiking")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+              <Link
+                href="/#hiking"
                 className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors"
               >
                 Hiking Guide
-              </button>
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("listing")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+              </Link>
+              <Link
+                href="/#listing"
                 className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors"
               >
                 Our Apartment
-              </button>
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("about")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+              </Link>
+              <Link
+                href="/#about"
                 className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors"
               >
                 About Us
-              </button>
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+              </Link>
+              <Link
+                href="/#contact"
                 className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors"
               >
                 Contact
-              </button>
+              </Link>
+              <Link
+                href={seoRoutes.nlHub}
+                className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                Wandelen in Luxemburg (NL)
+              </Link>
+              <Link
+                href={seoRoutes.nlWeekend}
+                className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                Wandelweekend Luxemburg
+              </Link>
+              <Link
+                href={seoRoutes.enHub}
+                className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                Hiking in Luxembourg (EN)
+              </Link>
             </div>
           </div>
 
@@ -90,7 +93,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <div className="text-primary-foreground/60 text-sm">
-            © 2024 Luxembourg Hiking Haven. All rights reserved.
+            © 2026 Lux Traveler. All rights reserved.
           </div>
           <div className="flex items-center gap-1 text-primary-foreground/60 text-sm mt-4 sm:mt-0">
             Made with <Heart className="h-4 w-4 fill-current text-accent" /> for
