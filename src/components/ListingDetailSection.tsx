@@ -23,8 +23,16 @@ const listingImages = [
 
 export default function ListingDetailSection() {
   return (
-    <section id="listing" className="py-20 bg-background">
+    <section
+      id="listing"
+      className="py-24 bg-gradient-to-b from-background via-slate-50/60 to-background"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-4">
+          <p className="inline-flex items-center rounded-full bg-secondary/10 text-secondary px-4 py-1.5 text-xs font-semibold tracking-wide">
+            Stay Overview
+          </p>
+        </div>
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-3xl font-bold tracking-tight mb-2">
@@ -103,7 +111,7 @@ export default function ListingDetailSection() {
           </div>
         </div>
         {/* About / Description Excerpt with modal */}
-        <div className="mt-12 bg-gradient-to-br from-primary/5 to-secondary/10 rounded-lg p-8 shadow-lg">
+        <div className="mt-12 bg-gradient-to-br from-card to-slate-50/70 rounded-2xl border border-border/70 p-8 shadow-medium">
           <div className="max-w-3xl space-y-6">
             <header className="space-y-4">
               <h3 className="text-4xl font-bold tracking-tight text-primary">

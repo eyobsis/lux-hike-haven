@@ -26,9 +26,15 @@ const bedrooms = [
 
 export default function SleepSection() {
   return (
-    <section id="sleep" className="py-20 bg-muted/30">
+    <section
+      id="sleep"
+      className="py-24 bg-gradient-to-b from-background via-slate-50/70 to-background"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 max-w-2xl">
+        <div className="mb-12 max-w-3xl">
+          <p className="inline-flex items-center rounded-full bg-secondary/10 text-secondary px-4 py-1.5 text-xs font-semibold tracking-wide mb-4">
+            Rest and Recover
+          </p>
           <h2 className="text-3xl font-bold tracking-tight mb-4">
             Where you&apos;ll sleep
           </h2>
@@ -42,7 +48,7 @@ export default function SleepSection() {
           {bedrooms.map((b) => (
             <div
               key={b.id}
-              className="group relative rounded-2xl overflow-hidden bg-card border shadow-sm"
+              className="group relative rounded-2xl overflow-hidden bg-card/90 backdrop-blur-sm border border-border/70 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
             >
               <div className="relative h-56 w-full">
                 <Image
@@ -52,13 +58,13 @@ export default function SleepSection() {
                   sizes="(max-width:1024px) 50vw, 33vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                 <span className="absolute bottom-3 left-4 text-white font-medium text-sm bg-black/40 backdrop-blur px-3 py-1 rounded-full">
                   {b.bed}
                 </span>
               </div>
               <div className="p-5">
-                <h3 className="font-semibold text-lg mb-2">{b.title}</h3>
+                <h3 className="font-semibold text-lg mb-2 text-foreground">{b.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {b.detail}
                 </p>
