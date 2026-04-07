@@ -145,6 +145,9 @@ export default function EnglishHikingHubPage() {
             <Link href={seoRoutes.nlStayNearTrails} className="font-semibold text-primary hover:text-primary-hover">
               Dutch stay guide near trails
             </Link>
+            <Link href={seoRoutes.enBlog} className="font-semibold text-primary hover:text-primary-hover">
+              Explore the hiking blog
+            </Link>
           </div>
         </section>
 

@@ -69,11 +69,12 @@ export default function HomePage() {
               </h2>
               <p className="text-muted-foreground max-w-3xl mx-auto">
                 Use dedicated Dutch and English pages for route planning,
-                practical travel tips, and booking guidance.
+                practical travel tips, and booking guidance. Dive into the
+                bilingual blog for deeper route strategy.
               </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
               <article className="rounded-2xl border border-border/70 bg-card/90 backdrop-blur p-7 shadow-soft hover:shadow-medium transition-all duration-300">
                 <h3 className="text-2xl font-bold text-foreground mb-3">
                   For Dutch tourists: Wandelen in Luxemburg
@@ -103,6 +104,23 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 font-semibold text-primary hover:text-primary-hover"
                 >
                   Visit the English hiking guide
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </article>
+              <article className="rounded-2xl border border-border/70 bg-card/90 backdrop-blur p-7 shadow-soft hover:shadow-medium transition-all duration-300">
+                <h3 className="text-2xl font-bold text-foreground mb-3">
+                  Bilingual Hiking Blog
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Read Dutch and English articles targeting search terms like
+                  "wanderen in Luxembourg" with practical route and travel
+                  logistics.
+                </p>
+                <Link
+                  href={seoRoutes.blog}
+                  className="inline-flex items-center gap-2 font-semibold text-primary hover:text-primary-hover"
+                >
+                  Explore the blog
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </article>

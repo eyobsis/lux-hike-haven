@@ -186,6 +186,9 @@ export default function DutchHikingHubPage() {
             <Link href={seoRoutes.nlStayNearTrails} className="font-semibold text-primary hover:text-primary-hover">
               Overnachten bij wandelroutes
             </Link>
+            <Link href={seoRoutes.nlBlog} className="font-semibold text-primary hover:text-primary-hover">
+              Lees de Wandelen in Luxemburg blog
+            </Link>
           </div>
         </section>
 

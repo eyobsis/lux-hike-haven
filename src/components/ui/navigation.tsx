@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   ArrowUpRight,
+  BookOpenText,
   CalendarDays,
   Camera,
   Globe2,
@@ -47,6 +48,7 @@ const primaryNavItems: NavItem[] = [
 const seoNavItems: NavItem[] = [
   { href: seoRoutes.nlHub, label: "NL Hiking", icon: Globe2 },
   { href: seoRoutes.enHub, label: "EN Hiking", icon: Globe2 },
+  { href: seoRoutes.blog, label: "Blog", icon: BookOpenText },
   { href: "/photo-tour", label: "Photos", icon: Images },
 ];
 
@@ -61,11 +63,19 @@ const Navigation = () => {
     }
 
     if (item.href === seoRoutes.nlHub) {
-      return pathname.startsWith("/nl");
+      return pathname.startsWith("/nl") && !pathname.startsWith(seoRoutes.nlBlog);
     }
 
     if (item.href === seoRoutes.enHub) {
-      return pathname.startsWith("/en");
+      return pathname.startsWith("/en") && !pathname.startsWith(seoRoutes.enBlog);
+    }
+
+    if (item.href === seoRoutes.blog) {
+      return (
+        pathname === seoRoutes.blog ||
+        pathname.startsWith(seoRoutes.enBlog) ||
+        pathname.startsWith(seoRoutes.nlBlog)
+      );
     }
 
     return pathname === item.href;

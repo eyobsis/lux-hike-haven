@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
+import { getBlogPostPairs, getBlogPostPath } from "@/lib/blog";
 import { absoluteUrl, seoRoutes } from "@/lib/site";
 
 const now = new Date();
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: absoluteUrl(seoRoutes.home),
       lastModified: now,
@@ -109,4 +110,69 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
   ];
+
+  const blogIndexPages: MetadataRoute.Sitemap = [
+    {
+      url: absoluteUrl(seoRoutes.enBlog),
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.86,
+      alternates: {
+        languages: {
+          en: absoluteUrl(seoRoutes.enBlog),
+          "nl-NL": absoluteUrl(seoRoutes.nlBlog),
+          "x-default": absoluteUrl(seoRoutes.nlBlog),
+        },
+      },
+    },
+    {
+      url: absoluteUrl(seoRoutes.nlBlog),
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.89,
+      alternates: {
+        languages: {
+          en: absoluteUrl(seoRoutes.enBlog),
+          "nl-NL": absoluteUrl(seoRoutes.nlBlog),
+          "x-default": absoluteUrl(seoRoutes.nlBlog),
+        },
+      },
+    },
+  ];
+
+  const blogPosts: MetadataRoute.Sitemap = getBlogPostPairs().flatMap((pair) => {
+    const enUrl = absoluteUrl(getBlogPostPath("en", pair.en.slug));
+    const nlUrl = absoluteUrl(getBlogPostPath("nl", pair.nl.slug));
+
+    return [
+      {
+        url: enUrl,
+        lastModified: new Date(pair.en.updatedAt),
+        changeFrequency: "weekly",
+        priority: 0.82,
+        alternates: {
+          languages: {
+            en: enUrl,
+            "nl-NL": nlUrl,
+            "x-default": nlUrl,
+          },
+        },
+      },
+      {
+        url: nlUrl,
+        lastModified: new Date(pair.nl.updatedAt),
+        changeFrequency: "weekly",
+        priority: 0.84,
+        alternates: {
+          languages: {
+            en: enUrl,
+            "nl-NL": nlUrl,
+            "x-default": nlUrl,
+          },
+        },
+      },
+    ];
+  });
+
+  return [...staticPages, ...blogIndexPages, ...blogPosts];
 }

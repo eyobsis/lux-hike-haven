@@ -9,9 +9,12 @@ export const siteConfig = {
 
 export const seoRoutes = {
   home: "/",
+  blog: "/blog",
   photoTour: "/photo-tour",
+  enBlog: "/en/blog",
   enHub: "/en/hiking-in-luxembourg",
   enTrails: "/en/luxembourg-hiking-trails",
+  nlBlog: "/nl/blog",
   nlHub: "/nl/wandelen-in-luxemburg",
   nlTrails: "/nl/wandelroutes-luxemburg",
   nlWeekend: "/nl/wandelweekend-luxemburg",

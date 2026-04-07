@@ -71,6 +71,18 @@ const Footer = () => {
               >
                 Hiking in Luxembourg (EN)
               </Link>
+              <Link
+                href={seoRoutes.nlBlog}
+                className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                Blog Wandelen in Luxemburg (NL)
+              </Link>
+              <Link
+                href={seoRoutes.enBlog}
+                className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                Hiking in Luxembourg Blog (EN)
+              </Link>
             </div>
           </div>
 
