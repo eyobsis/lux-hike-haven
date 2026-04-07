@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Plan je Mullerthal wandeling met afstand, moeilijkheid en praktische tips. Perfect voor Nederlandse toeristen die wandelen in Luxemburg plannen.",
   keywords: [
+    "wanderen in Luxembourg",
     "Mullerthal wandeling",
     "Mullerthal route",
     "wandelen Mullerthal Luxemburg",
@@ -23,11 +24,26 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Mullerthal wandeling | Praktische routegids",
+    title: "Mullerthal wandeling | Routegids voor Nederlandse wandelaars",
     description:
       "Alles wat je nodig hebt voor een goede Mullerthal wandeling vanuit een centrale verblijfslocatie.",
     url: absoluteUrl(seoRoutes.nlMullerthal),
     locale: "nl_NL",
+    images: [
+      {
+        url: siteConfig.defaultOgImage,
+        width: 1536,
+        height: 1024,
+        alt: "Mullerthal wandeling in Luxemburg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mullerthal wandeling | Praktische routegids",
+    description:
+      "Plan je Mullerthal wandeling in Luxemburg met tips voor Nederlandse bezoekers.",
+    images: [siteConfig.defaultOgImage],
   },
 };
 

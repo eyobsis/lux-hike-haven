@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Zoek je overnachting bij wandelroutes in Luxemburg? Ontdek waarom een verblijf in Grevenmacher praktisch is voor Nederlandse wandelaars.",
   keywords: [
+    "wanderen in Luxembourg",
     "overnachten bij wandelroutes Luxemburg",
     "verblijf wandelen Luxemburg",
     "accommodatie Luxemburg wandelen",
@@ -22,11 +23,26 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Overnachten bij wandelroutes Luxemburg",
+    title: "Overnachten bij wandelroutes Luxemburg | Voor Nederlandse wandelaars",
     description:
       "Praktische verblijfsgids voor wandelaars die Luxemburg vanuit een centrale locatie willen verkennen.",
     url: absoluteUrl(seoRoutes.nlStayNearTrails),
     locale: "nl_NL",
+    images: [
+      {
+        url: siteConfig.defaultOgImage,
+        width: 1536,
+        height: 1024,
+        alt: "Overnachten bij wandelroutes in Luxemburg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Overnachten bij wandelroutes Luxemburg",
+    description:
+      "Vind een centrale verblijfslocatie in Grevenmacher voor jouw wandeltrip in Luxemburg.",
+    images: [siteConfig.defaultOgImage],
   },
 };
 

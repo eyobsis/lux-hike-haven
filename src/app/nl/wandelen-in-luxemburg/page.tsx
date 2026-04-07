@@ -5,11 +5,14 @@ import { hikingRoutes } from "@/lib/hiking-routes";
 import { absoluteUrl, seoRoutes, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Wandelen in Luxemburg | Routes en verblijf voor Nederlanders",
+  title: "Wandelen in Luxemburg | Complete gids voor Nederlanders",
   description:
-    "Plan jouw wandelvakantie in Luxemburg. Ontdek routes, reistips vanuit Nederland en verblijf comfortabel in Grevenmacher.",
+    "Plan jouw wandelvakantie in Luxemburg. Voor zoekopdrachten als 'wanderen in Luxembourg' en 'wandelen in Luxemburg' met routes, reistips en verblijf in Grevenmacher.",
   keywords: [
+    "wanderen in Luxembourg",
     "wandelen in Luxemburg",
+    "wandelen in Luxembourg",
+    "wandelen in Luxemburg vanuit Nederland",
     "wandelroutes Luxemburg",
     "wandelweekend Luxemburg",
     "Mullerthal wandelen",
@@ -24,11 +27,26 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Wandelen in Luxemburg | Gids voor Nederlanders",
+    title: "Wandelen in Luxemburg | Gids voor Nederlandse toeristen",
     description:
-      "Bekijk de beste wandelroutes in Luxemburg en boek een ideale uitvalsbasis in Grevenmacher.",
+      "Nederlandse SEO-landingspagina voor wie zoekt op 'wanderen in Luxembourg' en wil wandelen in Luxemburg.",
     url: absoluteUrl(seoRoutes.nlHub),
     locale: "nl_NL",
+    images: [
+      {
+        url: siteConfig.defaultOgImage,
+        width: 1536,
+        height: 1024,
+        alt: "Wandelen in Luxemburg vanuit een verblijf in Grevenmacher",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wandelen in Luxemburg | Voor Nederlandse toeristen",
+    description:
+      "Zoek je op 'wanderen in Luxembourg'? Ontdek routes, planning en verblijf voor jouw wandeltrip.",
+    images: [siteConfig.defaultOgImage],
   },
 };
 

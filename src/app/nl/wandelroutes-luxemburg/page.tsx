@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { hikingRoutes } from "@/lib/hiking-routes";
-import { absoluteUrl, seoRoutes } from "@/lib/site";
+import { absoluteUrl, seoRoutes, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Wandelroutes Luxemburg | Afstanden, duur en niveau",
   description:
     "Bekijk de beste wandelroutes in Luxemburg met afstand, moeilijkheid en praktische informatie voor Nederlandse toeristen.",
   keywords: [
+    "wanderen in Luxembourg",
     "wandelroutes Luxemburg",
+    "wandelen in Luxembourg routes",
     "beste wandelroutes Luxemburg",
     "Mullerthal route",
     "wandelen Vianden",
@@ -22,11 +24,26 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Wandelroutes Luxemburg | Routeoverzicht",
+    title: "Wandelroutes Luxemburg | Routeoverzicht voor Nederlanders",
     description:
-      "Routeoverzicht met afstand, duur en niveau voor wandelen in Luxemburg.",
+      "Routeoverzicht met afstand, duur en niveau voor Nederlanders die zoeken op wandelen in Luxemburg.",
     url: absoluteUrl(seoRoutes.nlTrails),
     locale: "nl_NL",
+    images: [
+      {
+        url: siteConfig.defaultOgImage,
+        width: 1536,
+        height: 1024,
+        alt: "Wandelroutes in Luxemburg met verblijf in Grevenmacher",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wandelroutes Luxemburg | Praktisch overzicht",
+    description:
+      "Vergelijk routes voor jouw wandeltrip in Luxemburg met focus op Nederlandse bezoekers.",
+    images: [siteConfig.defaultOgImage],
   },
 };
 

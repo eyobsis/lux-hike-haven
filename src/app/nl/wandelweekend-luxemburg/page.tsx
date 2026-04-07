@@ -8,8 +8,10 @@ export const metadata: Metadata = {
   description:
     "Plan een wandelweekend in Luxemburg met een praktische 2-daagse route, tips voor vervoer en een comfortabele overnachting in Grevenmacher.",
   keywords: [
+    "wanderen in Luxembourg",
     "wandelweekend Luxemburg",
     "weekend Luxemburg wandelen",
+    "wandelen in Luxembourg weekend",
     "2 dagen wandelen Luxemburg",
     "wandelen vanuit Nederland Luxemburg",
   ],
@@ -22,11 +24,26 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Wandelweekend Luxemburg | 2-daagse planning",
+    title: "Wandelweekend Luxemburg | 2-daagse planning voor Nederlanders",
     description:
-      "Een praktische weekendgids voor Nederlanders die willen wandelen in Luxemburg.",
+      "Een praktische weekendgids voor Nederlanders die zoeken op wandelen in Luxemburg.",
     url: absoluteUrl(seoRoutes.nlWeekend),
     locale: "nl_NL",
+    images: [
+      {
+        url: siteConfig.defaultOgImage,
+        width: 1536,
+        height: 1024,
+        alt: "Wandelweekend in Luxemburg met verblijf in Grevenmacher",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wandelweekend Luxemburg | Voor Nederlandse toeristen",
+    description:
+      "Plan 2 wandeldagen in Luxemburg met routes en centraal verblijf.",
+    images: [siteConfig.defaultOgImage],
   },
 };
 

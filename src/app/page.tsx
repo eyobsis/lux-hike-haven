@@ -13,9 +13,18 @@ import ContactSection from "@/components/ContactSection";
 import { absoluteUrl, seoRoutes } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Hiking in Luxembourg | Apartment Stay for Trail Travelers",
+  title: "Wandelen in Luxemburg | Verblijf voor Nederlandse wandelaars",
   description:
-    "Discover top hikes in Luxembourg and stay in Grevenmacher. Plan trail days, local visits, and a comfortable apartment base from one place.",
+    "Voor Nederlanders die zoeken op 'wanderen in Luxembourg' of 'wandelen in Luxemburg': ontdek routes en boek een comfortabele uitvalsbasis in Grevenmacher.",
+  keywords: [
+    "wanderen in Luxembourg",
+    "wandelen in Luxemburg",
+    "wandelen in Luxembourg",
+    "wandelroutes Luxemburg",
+    "wandelvakantie Luxemburg",
+    "overnachten in Grevenmacher",
+    "hiking in Luxembourg",
+  ],
   alternates: {
     canonical: seoRoutes.home,
     languages: {
@@ -25,10 +34,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Hiking in Luxembourg | Apartment Stay for Trail Travelers",
+    title: "Wandelen in Luxemburg | Verblijf voor Nederlandse wandelaars",
     description:
-      "Trail guides, route planning, and accommodation in Grevenmacher for your hiking trip in Luxembourg.",
+      "Routes, planning en verblijf voor toeristen uit Nederland die willen wandelen in Luxemburg.",
     url: absoluteUrl(seoRoutes.home),
+    locale: "nl_NL",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wandelen in Luxemburg | Voor Nederlandse toeristen",
+    description:
+      "Complete gids met wandelroutes en verblijf in Grevenmacher voor jouw trip naar Luxemburg.",
   },
 };
 

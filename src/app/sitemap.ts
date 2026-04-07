@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           en: absoluteUrl(seoRoutes.enHub),
           "nl-NL": absoluteUrl(seoRoutes.nlHub),
+          "x-default": absoluteUrl(seoRoutes.nlHub),
         },
       },
     },
@@ -32,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           en: absoluteUrl(seoRoutes.enHub),
           "nl-NL": absoluteUrl(seoRoutes.nlHub),
+          "x-default": absoluteUrl(seoRoutes.nlHub),
         },
       },
     },
@@ -44,6 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           en: absoluteUrl(seoRoutes.enTrails),
           "nl-NL": absoluteUrl(seoRoutes.nlTrails),
+          "x-default": absoluteUrl(seoRoutes.nlTrails),
         },
       },
     },
@@ -56,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           en: absoluteUrl(seoRoutes.enTrails),
           "nl-NL": absoluteUrl(seoRoutes.nlTrails),
+          "x-default": absoluteUrl(seoRoutes.nlTrails),
         },
       },
     },
@@ -68,6 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           en: absoluteUrl(seoRoutes.enHub),
           "nl-NL": absoluteUrl(seoRoutes.nlWeekend),
+          "x-default": absoluteUrl(seoRoutes.nlWeekend),
         },
       },
     },
@@ -80,6 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           en: absoluteUrl(seoRoutes.enHub),
           "nl-NL": absoluteUrl(seoRoutes.nlMullerthal),
+          "x-default": absoluteUrl(seoRoutes.nlMullerthal),
         },
       },
     },
@@ -92,6 +98,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           en: absoluteUrl(seoRoutes.enHub),
           "nl-NL": absoluteUrl(seoRoutes.nlStayNearTrails),
+          "x-default": absoluteUrl(seoRoutes.nlStayNearTrails),
         },
       },
     },
