@@ -38,11 +38,11 @@ export default function BlogPostContent({
 
   return (
     <main lang={locale === "nl" ? "nl-NL" : "en"} className="bg-background pt-24 pb-16">
-      <section className="relative overflow-hidden border-b border-border/70 bg-gradient-to-br from-background via-emerald-50/70 to-sky-50/80">
+      <section className="section-parallax-soft relative overflow-hidden border-b border-border/70 bg-gradient-to-br from-background via-emerald-50/70 to-sky-50/80">
         <div className="pointer-events-none absolute -left-24 top-2 h-80 w-80 rounded-full bg-primary/15 blur-3xl" />
         <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-secondary/15 blur-3xl" />
 
-        <div className="container relative mx-auto px-4 pb-14 pt-10 sm:px-6 lg:px-8">
+        <div className="section-reveal container relative mx-auto px-4 pb-14 pt-10 sm:px-6 lg:px-8">
           <nav className="mb-6 text-sm text-muted-foreground">
             <Link href={seoRoutes.home} className="hover:text-primary">
               Home
@@ -128,10 +128,14 @@ export default function BlogPostContent({
         </div>
       </section>
 
-      <section className="container mx-auto grid gap-8 px-4 pt-12 sm:px-6 lg:grid-cols-[1.35fr_0.85fr] lg:px-8">
-        <article className="space-y-8">
-          {post.sections.map((section) => (
-            <section key={section.title} className="rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8">
+      <section className="section-divider section-parallax-soft section-reveal container mx-auto grid gap-8 px-4 pt-12 sm:px-6 lg:grid-cols-[1.35fr_0.85fr] lg:px-8">
+        <article className="section-reveal space-y-8">
+          {post.sections.map((section, index) => (
+            <section
+              key={section.title}
+              className="section-reveal rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8"
+              style={{ animationDelay: `${index * 0.08}s` }}
+            >
               <h2 className="text-2xl font-bold text-foreground md:text-3xl">{section.title}</h2>
               <div className="mt-4 space-y-4 text-base leading-relaxed text-muted-foreground">
                 {section.paragraphs.map((paragraph) => (
@@ -151,7 +155,7 @@ export default function BlogPostContent({
             </section>
           ))}
 
-          <section className="rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8">
+          <section className="section-reveal rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8">
             <h2 className="text-2xl font-bold text-foreground md:text-3xl">
               {locale === "nl" ? "Veelgestelde vragen" : "Frequently asked questions"}
             </h2>
@@ -168,7 +172,7 @@ export default function BlogPostContent({
           </section>
         </article>
 
-        <aside className="space-y-6">
+        <aside className="section-reveal section-reveal-delay space-y-6">
           <section className="rounded-3xl border border-border bg-card p-6 shadow-soft">
             <h2 className="text-lg font-bold text-foreground">
               {locale === "nl" ? "Quick SEO focus" : "Quick SEO focus"}
@@ -252,17 +256,18 @@ export default function BlogPostContent({
       </section>
 
       {relatedPosts.length > 0 && (
-        <section className="container mx-auto px-4 pt-12 sm:px-6 lg:px-8">
+        <section className="section-divider section-parallax-soft section-reveal container mx-auto px-4 pt-12 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8">
             <h2 className="text-2xl font-bold text-foreground">
               {locale === "nl" ? "Gerelateerde artikelen" : "Related articles"}
             </h2>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
-              {relatedPosts.map((related) => (
+              {relatedPosts.map((related, index) => (
                 <Link
                   key={related.slug}
                   href={getBlogPostPath(locale, related.slug)}
-                  className="group rounded-2xl border border-border/70 bg-background p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30"
+                  className="section-reveal group rounded-2xl border border-border/70 bg-background p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30"
+                  style={{ animationDelay: `${index * 0.08}s` }}
                 >
                   <p className="text-xs font-semibold uppercase tracking-wide text-primary">{related.category}</p>
                   <h3 className="mt-2 text-base font-bold leading-snug text-foreground group-hover:text-primary">

@@ -59,7 +59,7 @@ const Navigation = () => {
 
   const isNavItemActive = (item: NavItem) => {
     if (item.isSectionLink) {
-      return pathname === "/";
+      return false;
     }
 
     if (item.href === seoRoutes.nlHub) {
@@ -87,59 +87,84 @@ const Navigation = () => {
 
   const desktopLinkClass = (isActive: boolean) =>
     cn(
-      "group inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200",
-      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/45 focus-visible:ring-offset-2",
-      "active:scale-[0.98]",
+      "relative inline-flex items-center px-3 py-2 text-[13px] font-semibold tracking-[0.08em] transition-colors duration-200",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2",
+      "after:absolute after:-bottom-1 after:left-3 after:right-3 after:h-[2px] after:rounded-full after:bg-primary after:transition-opacity after:duration-200",
       isActive
-        ? "bg-primary/12 text-primary shadow-soft"
-        : "text-foreground/90 hover:bg-muted/70 hover:text-primary"
+        ? "text-foreground after:opacity-100"
+        : "text-foreground/70 hover:text-foreground after:opacity-0 hover:after:opacity-60"
     );
 
   const mobileLinkClass = (isActive: boolean) =>
     cn(
-      "group flex w-full items-center justify-between rounded-2xl border px-4 py-3.5 text-base font-semibold transition-all duration-200",
+      "group flex w-full items-center justify-between rounded-2xl border px-4 py-3 text-[15px] font-semibold transition-all duration-200",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/45 focus-visible:ring-offset-2",
       "active:scale-[0.99]",
       isActive
         ? "border-primary/30 bg-primary/10 text-primary shadow-soft"
-        : "border-transparent bg-card/60 text-foreground hover:border-border/70 hover:bg-muted/70 hover:text-primary"
+        : "border-border/60 bg-card/80 text-foreground/90 hover:bg-muted/70 hover:text-foreground"
     );
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-xl shadow-[0_12px_36px_-24px_rgba(0,0,0,0.4)]">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/70 bg-gradient-to-b from-background/95 via-background/90 to-background/70 backdrop-blur-xl shadow-soft">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
-          <div className="flex-shrink-0">
-            <Link href="/" className="group inline-flex items-center">
-              <h1 className="bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-2xl font-extrabold tracking-tight text-transparent transition-opacity duration-200 group-hover:opacity-90">
+        <div className="flex h-[76px] items-center justify-between gap-4">
+          <Link href="/" className="group inline-flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-card/80 shadow-soft">
+              <Mountain className="h-5 w-5 text-primary" />
+            </span>
+            <span className="flex flex-col">
+              <span className="font-serif text-lg font-semibold tracking-tight text-foreground">
                 Lux Traveler
-              </h1>
-            </Link>
+              </span>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
+                Grevenmacher, Luxembourg
+              </span>
+            </span>
+          </Link>
+
+          <div className="hidden md:flex md:flex-1 md:items-center md:justify-center">
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-1">
+                {primaryNavItems.map((item) => {
+                  const isActive = isNavItemActive(item);
+
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={desktopLinkClass(isActive)}
+                    >
+                      <span>{item.label}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+              <div className="h-5 w-px bg-border/60" aria-hidden="true" />
+              <div className="flex items-center gap-1">
+                {seoNavItems.map((item) => {
+                  const isActive = isNavItemActive(item);
+
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={desktopLinkClass(isActive)}
+                    >
+                      <span>{item.label}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
-          <div className="hidden md:flex md:items-center md:gap-3">
-            <div className="ml-6 flex items-center gap-1.5 rounded-full border border-border/70 bg-card/70 px-2.5 py-2 shadow-soft">
-              {[...primaryNavItems, ...seoNavItems].map((item) => {
-                const Icon = item.icon;
-                const isActive = isNavItemActive(item);
-
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    aria-current={isActive ? "page" : undefined}
-                    className={desktopLinkClass(isActive)}
-                  >
-                    <Icon className="h-4 w-4 transition-transform duration-200 group-hover:scale-105" />
-                    <span>{item.label}</span>
-                  </Link>
-                );
-              })}
-            </div>
-
+          <div className="hidden md:flex md:items-center">
             <button
               onClick={() => window.open(airbnbUrl, "_blank")}
-              className="inline-flex h-11 items-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-6 text-sm font-semibold text-primary-foreground shadow-[0_12px_28px_-16px_hsl(var(--primary)/0.8)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_30px_-16px_hsl(var(--primary)/0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 active:translate-y-0 active:scale-[0.98]"
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-gradient-forest px-5 text-sm font-semibold text-primary-foreground shadow-[0_16px_30px_-20px_rgba(0,0,0,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_20px_36px_-22px_rgba(0,0,0,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 active:translate-y-0 active:scale-[0.98]"
             >
               <CalendarDays className="h-4 w-4" />
               Reserve
@@ -153,7 +178,7 @@ const Navigation = () => {
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-              className="h-11 w-11 rounded-2xl border border-border/70 bg-card/70 text-foreground hover:bg-muted/70 focus-visible:ring-primary/45 active:scale-[0.98]"
+              className="h-11 w-11 rounded-full border border-border/70 bg-card/80 text-foreground hover:bg-muted/70 focus-visible:ring-primary/45 active:scale-[0.98]"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -162,9 +187,56 @@ const Navigation = () => {
 
         {isOpen && (
           <div className="md:hidden pb-4">
-            <div className="overflow-hidden rounded-3xl border border-border/70 bg-background/95 p-3 backdrop-blur-xl shadow-[0_16px_36px_-24px_rgba(0,0,0,0.45)]">
-              <div className="space-y-1.5">
-                {[...primaryNavItems, ...seoNavItems].map((item) => {
+            <div className="overflow-hidden rounded-3xl border border-border/70 bg-background/95 p-4 backdrop-blur-xl shadow-strong">
+              <div className="mb-4 flex items-center justify-between rounded-2xl border border-border/60 bg-card/80 px-4 py-3">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-border/70 bg-background shadow-soft">
+                    <Mountain className="h-4 w-4 text-primary" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Lux Traveler</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                      Grevenmacher
+                    </p>
+                  </div>
+                </div>
+                <span className="rounded-full border border-border/70 bg-background/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  Apartment
+                </span>
+              </div>
+              <div className="space-y-2">
+                <p className="px-1 text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">
+                  Explore
+                </p>
+                {primaryNavItems.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = isNavItemActive(item);
+
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={mobileLinkClass(isActive)}
+                      onClick={handleNavClick}
+                    >
+                      <span className="inline-flex items-center gap-3">
+                        <span className="rounded-xl bg-muted/70 p-2 text-primary transition-colors duration-200 group-hover:bg-primary/12">
+                          <Icon className="h-4 w-4" />
+                        </span>
+                        <span>{item.label}</span>
+                      </span>
+                      <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
+                    </Link>
+                  );
+                })}
+              </div>
+
+              <div className="mt-4 space-y-2">
+                <p className="px-1 text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">
+                  Guides
+                </p>
+                {seoNavItems.map((item) => {
                   const Icon = item.icon;
                   const isActive = isNavItemActive(item);
 
@@ -193,7 +265,7 @@ const Navigation = () => {
                   handleNavClick();
                   window.open(airbnbUrl, "_blank");
                 }}
-                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-primary to-secondary px-5 py-3.5 text-base font-semibold text-primary-foreground shadow-[0_12px_30px_-16px_hsl(var(--primary)/0.85)] transition-all duration-300 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/55 focus-visible:ring-offset-2 active:scale-[0.99]"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-base font-semibold text-primary-foreground shadow-soft transition-all duration-200 hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/55 focus-visible:ring-offset-2 active:scale-[0.99]"
               >
                 <CalendarDays className="h-4 w-4" />
                 Reserve Stay

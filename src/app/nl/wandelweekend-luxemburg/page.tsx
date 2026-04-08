@@ -109,7 +109,7 @@ export default function DutchWeekendPage() {
           <span>Wandelweekend Luxemburg</span>
         </nav>
 
-        <header className="mb-10">
+        <header className="section-reveal mb-10">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
             Wandelweekend Luxemburg: praktisch 2-daags plan
           </h1>
@@ -120,8 +120,11 @@ export default function DutchWeekendPage() {
           </p>
         </header>
 
-        <section className="grid gap-4 md:grid-cols-2 mb-12">
-          <article className="rounded-xl border border-border bg-card p-6">
+        <section className="section-divider section-parallax-soft section-reveal grid gap-4 md:grid-cols-2 mb-12">
+          <article
+            className="section-reveal rounded-xl border border-border bg-card p-6"
+            style={{ animationDelay: "0.08s" }}
+          >
             <p className="text-sm font-semibold text-primary mb-2">Dag 1</p>
             <h2 className="text-2xl font-semibold text-foreground mb-3">Mullerthal + Echternach</h2>
             <ul className="space-y-2 text-muted-foreground">
@@ -130,7 +133,10 @@ export default function DutchWeekendPage() {
               <li>Avond: ontspannen terug naar je verblijf in Grevenmacher.</li>
             </ul>
           </article>
-          <article className="rounded-xl border border-border bg-card p-6">
+          <article
+            className="section-reveal rounded-xl border border-border bg-card p-6"
+            style={{ animationDelay: "0.16s" }}
+          >
             <p className="text-sm font-semibold text-primary mb-2">Dag 2</p>
             <h2 className="text-2xl font-semibold text-foreground mb-3">Vianden of Beaufort</h2>
             <ul className="space-y-2 text-muted-foreground">
@@ -141,24 +147,33 @@ export default function DutchWeekendPage() {
           </article>
         </section>
 
-        <section className="mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+        <section className="section-divider section-parallax-soft section-reveal mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 className="text-3xl font-semibold text-foreground mb-4">
             Waarom dit werkt voor Nederlandse reizigers
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
-            <article className="rounded-lg border border-border/70 bg-background p-4">
+            <article
+              className="section-reveal rounded-lg border border-border/70 bg-background p-4"
+              style={{ animationDelay: "0.08s" }}
+            >
               <h3 className="font-semibold text-foreground mb-2">Efficient plannen</h3>
               <p className="text-sm text-muted-foreground">
                 Twee volle wandeldagen zonder elke dag van verblijf te wisselen.
               </p>
             </article>
-            <article className="rounded-lg border border-border/70 bg-background p-4">
+            <article
+              className="section-reveal rounded-lg border border-border/70 bg-background p-4"
+              style={{ animationDelay: "0.16s" }}
+            >
               <h3 className="font-semibold text-foreground mb-2">Centrale basis</h3>
               <p className="text-sm text-muted-foreground">
                 Vanuit Grevenmacher bereik je meerdere wandelgebieden per auto.
               </p>
             </article>
-            <article className="rounded-lg border border-border/70 bg-background p-4">
+            <article
+              className="section-reveal rounded-lg border border-border/70 bg-background p-4"
+              style={{ animationDelay: "0.24s" }}
+            >
               <h3 className="font-semibold text-foreground mb-2">Comfort na de route</h3>
               <p className="text-sm text-muted-foreground">
                 Ruimte, faciliteiten en parkeren helpen bij een relaxte weekendtrip.
@@ -167,7 +182,7 @@ export default function DutchWeekendPage() {
           </div>
         </section>
 
-        <section className="mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+        <section className="section-divider section-parallax-soft section-reveal mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 className="text-3xl font-semibold text-foreground mb-4">
             Verblijf boeken voor je wandelweekend
           </h2>
@@ -193,7 +208,7 @@ export default function DutchWeekendPage() {
           </div>
         </section>
 
-        <section>
+        <section className="section-divider section-parallax-soft section-reveal">
           <h2 className="text-3xl font-semibold text-foreground mb-4">Veelgestelde vragen</h2>
           <div className="space-y-3">
             {faqItems.map((item) => (

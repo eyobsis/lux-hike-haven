@@ -333,10 +333,10 @@ export default function AmenitiesSection() {
   return (
     <section
       id="amenities"
-      className="py-24 bg-gradient-to-b from-slate-50/70 via-background to-slate-50/50"
+      className="section-divider section-parallax-soft py-24 bg-gradient-to-b from-slate-50/70 via-background to-slate-50/50"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="max-w-4xl mb-10">
+        <header className="section-reveal max-w-4xl mb-10">
           <p className="inline-flex items-center rounded-full bg-secondary/10 text-secondary px-4 py-1.5 text-xs font-semibold tracking-wide mb-4">
             Comfort Essentials
           </p>
@@ -350,11 +350,12 @@ export default function AmenitiesSection() {
         </header>
 
         {/* Preview grid */}
-        <ul className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-8">
-          {preview.map((a) => (
+        <ul className="section-reveal section-reveal-delay grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-8">
+          {preview.map((a, index) => (
             <li
               key={a.name}
-              className="flex items-center gap-3 rounded-xl border border-border/70 bg-card/85 backdrop-blur-sm px-4 py-3 text-base shadow-soft hover:shadow-medium transition-all duration-300"
+              className="section-reveal flex items-center gap-3 rounded-xl border border-border/70 bg-card/85 backdrop-blur-sm px-4 py-3 text-base shadow-soft hover:shadow-medium transition-all duration-300"
+              style={{ animationDelay: `${index * 0.06}s` }}
             >
               <span className="text-primary/80">{a.icon}</span>
               <span className="font-medium leading-tight">{a.name}</span>
@@ -362,7 +363,7 @@ export default function AmenitiesSection() {
           ))}
         </ul>
 
-        <div className="flex flex-wrap items-center gap-4 mb-14 rounded-2xl border border-border/70 bg-card/75 backdrop-blur-sm p-4 md:p-5">
+        <div className="section-reveal section-reveal-delay-lg flex flex-wrap items-center gap-4 mb-14 rounded-2xl border border-border/70 bg-card/75 backdrop-blur-sm p-4 md:p-5">
           <Dialog>
             <DialogTrigger asChild>
               <Button variant="outline" size="lg" className="rounded-lg">

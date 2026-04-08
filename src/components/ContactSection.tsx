@@ -68,11 +68,11 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-24 bg-gradient-to-b from-muted/55 via-background to-muted/45"
+      className="section-divider section-parallax-soft py-24 bg-gradient-to-b from-muted/55 via-background to-muted/45"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="section-reveal text-center mb-16">
           <p className="inline-flex items-center rounded-full bg-secondary/10 text-secondary px-4 py-1.5 text-xs font-semibold tracking-wide mb-4">
             Plan With Confidence
           </p>
@@ -86,7 +86,7 @@ export default function ContactSection() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Info */}
-            <div className="lg:col-span-1 animate-slide-up">
+            <div className="lg:col-span-1 section-reveal">
               <Card className="h-full border-border/70 bg-card/90 backdrop-blur-sm shadow-soft">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-primary">
@@ -133,10 +133,7 @@ export default function ContactSection() {
             </div>
 
             {/* Contact Form */}
-            <div
-              className="lg:col-span-2 animate-slide-up"
-              style={{ animationDelay: "0.2s" }}
-            >
+            <div className="lg:col-span-2 section-reveal section-reveal-delay">
               <Card className="border-border/70 bg-card/90 backdrop-blur-sm shadow-soft">
                 <CardHeader>
                   <CardTitle className="text-primary">
@@ -214,7 +211,7 @@ export default function ContactSection() {
           </div>
 
           {/* Map Placeholder */}
-          <div className="mt-12 animate-fade-in">
+          <div className="section-reveal section-reveal-delay mt-12">
             <Card className="overflow-hidden border-primary/30 bg-gradient-forest text-primary-foreground">
               <CardContent className="p-0">
                 <div className="h-64 flex items-center justify-center text-primary-foreground">

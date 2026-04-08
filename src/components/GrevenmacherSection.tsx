@@ -80,11 +80,11 @@ const GrevenmacherSection = () => {
   return (
     <section
       id="grevenmacher"
-      className="py-24 bg-gradient-to-b from-background via-muted/35 to-background"
+      className="section-divider section-parallax-soft py-24 bg-gradient-to-b from-background via-muted/35 to-background"
     >
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="section-reveal text-center mb-16">
           <p className="inline-flex items-center rounded-full bg-secondary/10 text-secondary px-4 py-1.5 text-xs font-semibold tracking-wide mb-4">
             Local Discovery
           </p>
@@ -103,7 +103,8 @@ const GrevenmacherSection = () => {
           {attractions.map((attraction, index) => (
             <Card
               key={attraction.id}
-              className="group overflow-hidden bg-card/90 backdrop-blur-sm border border-border/70 hover:shadow-strong transition-all duration-300 hover:scale-[1.02] rounded-xl"
+              className="section-reveal group overflow-hidden bg-card/90 backdrop-blur-sm border border-border/70 hover:shadow-strong transition-all duration-300 hover:scale-[1.02] rounded-xl"
+              style={{ animationDelay: `${index * 0.08}s` }}
             >
               <div className="relative overflow-hidden">
                 <div className="relative w-full h-56">
@@ -174,7 +175,7 @@ const GrevenmacherSection = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center bg-gradient-forest rounded-3xl p-8 md:p-12 border border-primary/35 shadow-strong">
+        <div className="section-reveal section-reveal-delay text-center bg-gradient-forest rounded-3xl p-8 md:p-12 border border-primary/35 shadow-strong">
           <h3 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4 tracking-wide">
             Book Your Grevenmacher Escape
           </h3>

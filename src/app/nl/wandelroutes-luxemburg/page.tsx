@@ -75,7 +75,7 @@ export default function DutchTrailsPage() {
           <span>Wandelroutes Luxemburg</span>
         </nav>
 
-        <header className="mb-10">
+        <header className="section-reveal mb-10">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
             Wandelroutes in Luxemburg: praktisch routeoverzicht
           </h1>
@@ -85,7 +85,7 @@ export default function DutchTrailsPage() {
           </p>
         </header>
 
-        <section className="overflow-x-auto rounded-xl border border-border bg-card">
+        <section className="section-divider section-parallax-soft section-reveal overflow-x-auto rounded-xl border border-border bg-card">
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-border bg-muted/40">
@@ -110,7 +110,7 @@ export default function DutchTrailsPage() {
           </table>
         </section>
 
-        <section className="mt-10 rounded-xl border border-border bg-card p-6">
+        <section className="section-divider section-parallax-soft section-reveal mt-10 rounded-xl border border-border bg-card p-6">
           <h2 className="text-2xl font-semibold text-foreground mb-3">
             Volgende stap
           </h2>

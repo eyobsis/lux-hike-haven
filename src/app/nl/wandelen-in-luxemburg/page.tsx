@@ -127,7 +127,7 @@ export default function DutchHikingHubPage() {
           <span>Wandelen in Luxemburg</span>
         </nav>
 
-        <header className="mb-10">
+        <header className="section-reveal mb-10">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
             Wandelen in Luxemburg: complete gids voor toeristen uit Nederland
           </h1>
@@ -139,28 +139,41 @@ export default function DutchHikingHubPage() {
           </p>
         </header>
 
-        <section className="grid gap-4 md:grid-cols-3 mb-12">
-          <article className="rounded-xl border border-border bg-card p-5">
+        <section className="section-divider section-parallax-soft section-reveal grid gap-4 md:grid-cols-3 mb-12">
+          <article
+            className="section-reveal rounded-xl border border-border bg-card p-5"
+            style={{ animationDelay: "0.08s" }}
+          >
             <p className="text-sm text-muted-foreground">Topregio's</p>
             <p className="text-2xl font-bold text-foreground">Mullerthal, Vianden, Echternach</p>
           </article>
-          <article className="rounded-xl border border-border bg-card p-5">
+          <article
+            className="section-reveal rounded-xl border border-border bg-card p-5"
+            style={{ animationDelay: "0.16s" }}
+          >
             <p className="text-sm text-muted-foreground">Beste triptype</p>
             <p className="text-2xl font-bold text-foreground">2-4 dagen</p>
           </article>
-          <article className="rounded-xl border border-border bg-card p-5">
+          <article
+            className="section-reveal rounded-xl border border-border bg-card p-5"
+            style={{ animationDelay: "0.24s" }}
+          >
             <p className="text-sm text-muted-foreground">Moeilijkheid</p>
             <p className="text-2xl font-bold text-foreground">Makkelijk tot zwaar</p>
           </article>
         </section>
 
-        <section className="mb-12">
+        <section className="section-divider section-parallax-soft section-reveal mb-12">
           <h2 className="text-3xl font-semibold text-foreground mb-4">
             Aanbevolen wandelroutes in Luxemburg
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
-            {highlightedRoutes.map((route) => (
-              <article key={route.id} className="rounded-xl border border-border bg-card p-5">
+            {highlightedRoutes.map((route, index) => (
+              <article
+                key={route.id}
+                className="section-reveal rounded-xl border border-border bg-card p-5"
+                style={{ animationDelay: `${index * 0.08}s` }}
+              >
                 <h3 className="text-xl font-semibold text-foreground mb-2">{route.name}</h3>
                 <p className="text-sm text-muted-foreground mb-3">{route.summaryNl}</p>
                 <ul className="text-sm text-foreground space-y-1">
@@ -192,7 +205,7 @@ export default function DutchHikingHubPage() {
           </div>
         </section>
 
-        <section className="mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+        <section className="section-divider section-parallax-soft section-reveal mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 className="text-3xl font-semibold text-foreground mb-4">
             Speciaal voor reizigers uit Nederland
           </h2>
@@ -218,7 +231,7 @@ export default function DutchHikingHubPage() {
           </div>
         </section>
 
-        <section className="mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+        <section className="section-divider section-parallax-soft section-reveal mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 className="text-3xl font-semibold text-foreground mb-4">
             Overnachten bij wandelroutes in Luxemburg
           </h2>
@@ -246,7 +259,7 @@ export default function DutchHikingHubPage() {
           </div>
         </section>
 
-        <section>
+        <section className="section-divider section-parallax-soft section-reveal">
           <h2 className="text-3xl font-semibold text-foreground mb-4">Veelgestelde vragen</h2>
           <div className="space-y-3">
             {faqItems.map((item) => (

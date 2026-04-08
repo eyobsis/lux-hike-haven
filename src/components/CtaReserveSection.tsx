@@ -9,12 +9,12 @@ export default function CtaReserveSection() {
   const airbnbUrl = getAirbnbUrl("cta-reserve-section");
 
   return (
-    <section className="relative py-28 bg-gradient-to-b from-muted/55 via-background to-muted/45 overflow-hidden">
+    <section className="section-divider section-parallax-medium relative py-28 bg-gradient-to-b from-muted/55 via-background to-muted/45 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none [mask-image:radial-gradient(circle_at_center,black,transparent)] opacity-25" />
       <div className="absolute -top-20 -left-16 h-64 w-64 rounded-full bg-secondary/20 blur-3xl" />
       <div className="absolute -bottom-20 -right-16 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto rounded-3xl border border-border/70 bg-card/85 backdrop-blur-sm px-6 py-10 md:px-12 md:py-14 text-center space-y-8 shadow-medium">
+        <div className="section-reveal max-w-5xl mx-auto rounded-3xl border border-border/70 bg-card/85 backdrop-blur-sm px-6 py-10 md:px-12 md:py-14 text-center space-y-8 shadow-medium">
           <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium shadow-sm">
             <Star className="h-4 w-4 fill-current" /> 4.9 Rated Stay
           </div>

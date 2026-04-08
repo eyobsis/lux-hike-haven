@@ -110,7 +110,7 @@ export default function DutchMullerthalPage() {
           <span>Mullerthal wandeling</span>
         </nav>
 
-        <header className="mb-10">
+        <header className="section-reveal mb-10">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
             Mullerthal wandeling: route en voorbereiding
           </h1>
@@ -122,24 +122,36 @@ export default function DutchMullerthalPage() {
         </header>
 
         {mullerthalRoute && (
-          <section className="mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+          <section className="section-divider section-parallax-soft section-reveal mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
             <h2 className="text-3xl font-semibold text-foreground mb-4">
               Aanbevolen route: {mullerthalRoute.name}
             </h2>
             <div className="grid gap-4 md:grid-cols-4">
-              <article className="rounded-lg border border-border/70 bg-background p-4">
+              <article
+                className="section-reveal rounded-lg border border-border/70 bg-background p-4"
+                style={{ animationDelay: "0.08s" }}
+              >
                 <p className="text-sm text-muted-foreground">Afstand</p>
                 <p className="text-xl font-bold text-foreground">{mullerthalRoute.distanceKm} km</p>
               </article>
-              <article className="rounded-lg border border-border/70 bg-background p-4">
+              <article
+                className="section-reveal rounded-lg border border-border/70 bg-background p-4"
+                style={{ animationDelay: "0.16s" }}
+              >
                 <p className="text-sm text-muted-foreground">Duur</p>
                 <p className="text-xl font-bold text-foreground">{mullerthalRoute.duration}</p>
               </article>
-              <article className="rounded-lg border border-border/70 bg-background p-4">
+              <article
+                className="section-reveal rounded-lg border border-border/70 bg-background p-4"
+                style={{ animationDelay: "0.24s" }}
+              >
                 <p className="text-sm text-muted-foreground">Niveau</p>
                 <p className="text-xl font-bold text-foreground">{mullerthalRoute.difficulty}</p>
               </article>
-              <article className="rounded-lg border border-border/70 bg-background p-4">
+              <article
+                className="section-reveal rounded-lg border border-border/70 bg-background p-4"
+                style={{ animationDelay: "0.32s" }}
+              >
                 <p className="text-sm text-muted-foreground">Startpunt</p>
                 <p className="text-xl font-bold text-foreground">{mullerthalRoute.startPoint}</p>
               </article>
@@ -148,10 +160,13 @@ export default function DutchMullerthalPage() {
           </section>
         )}
 
-        <section className="mb-12">
+        <section className="section-divider section-parallax-soft section-reveal mb-12">
           <h2 className="text-3xl font-semibold text-foreground mb-4">Snelle checklist voor vertrek</h2>
           <div className="grid gap-4 md:grid-cols-2">
-            <article className="rounded-xl border border-border bg-card p-5">
+            <article
+              className="section-reveal rounded-xl border border-border bg-card p-5"
+              style={{ animationDelay: "0.08s" }}
+            >
               <h3 className="text-xl font-semibold text-foreground mb-3">Voor de route</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li>Controleer het weer en kies passende kledinglagen.</li>
@@ -159,7 +174,10 @@ export default function DutchMullerthalPage() {
                 <li>Start vroeg voor rustigere paden en betere planning.</li>
               </ul>
             </article>
-            <article className="rounded-xl border border-border bg-card p-5">
+            <article
+              className="section-reveal rounded-xl border border-border bg-card p-5"
+              style={{ animationDelay: "0.16s" }}
+            >
               <h3 className="text-xl font-semibold text-foreground mb-3">Na de route</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li>Plan ontspanning en herstel in je avondschema.</li>
@@ -170,7 +188,7 @@ export default function DutchMullerthalPage() {
           </div>
         </section>
 
-        <section className="mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+        <section className="section-divider section-parallax-soft section-reveal mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 className="text-3xl font-semibold text-foreground mb-4">
             Blijf centraal voor Mullerthal en meer
           </h2>
@@ -193,7 +211,7 @@ export default function DutchMullerthalPage() {
           </div>
         </section>
 
-        <section>
+        <section className="section-divider section-parallax-soft section-reveal">
           <h2 className="text-3xl font-semibold text-foreground mb-4">Veelgestelde vragen</h2>
           <div className="space-y-3">
             {faqItems.map((item) => (

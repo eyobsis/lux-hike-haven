@@ -58,7 +58,7 @@ export default function EnglishTrailsPage() {
           <span>Luxembourg hiking trails</span>
         </nav>
 
-        <header className="mb-10">
+        <header className="section-reveal mb-10">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
             Luxembourg hiking trails: practical route list
           </h1>
@@ -68,7 +68,7 @@ export default function EnglishTrailsPage() {
           </p>
         </header>
 
-        <section className="overflow-x-auto rounded-xl border border-border bg-card">
+        <section className="section-divider section-parallax-soft section-reveal overflow-x-auto rounded-xl border border-border bg-card">
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-border bg-muted/40">
@@ -93,7 +93,7 @@ export default function EnglishTrailsPage() {
           </table>
         </section>
 
-        <section className="mt-10 rounded-xl border border-border bg-card p-6">
+        <section className="section-divider section-parallax-soft section-reveal mt-10 rounded-xl border border-border bg-card p-6">
           <h2 className="text-2xl font-semibold text-foreground mb-3">Next step</h2>
           <p className="text-muted-foreground mb-4">
             Pair your trail shortlist with a central base to reduce transfer

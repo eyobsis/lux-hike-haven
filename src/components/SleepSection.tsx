@@ -28,10 +28,10 @@ export default function SleepSection() {
   return (
     <section
       id="sleep"
-      className="py-24 bg-gradient-to-b from-background via-slate-50/70 to-background"
+      className="section-divider section-parallax-soft py-24 bg-gradient-to-b from-background via-slate-50/70 to-background"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 max-w-3xl">
+        <div className="section-reveal mb-12 max-w-3xl">
           <p className="inline-flex items-center rounded-full bg-secondary/10 text-secondary px-4 py-1.5 text-xs font-semibold tracking-wide mb-4">
             Rest and Recover
           </p>
@@ -44,11 +44,12 @@ export default function SleepSection() {
             vineyards.
           </p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {bedrooms.map((b) => (
+        <div className="section-reveal section-reveal-delay grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {bedrooms.map((b, index) => (
             <div
               key={b.id}
-              className="group relative rounded-2xl overflow-hidden bg-card/90 backdrop-blur-sm border border-border/70 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+              className="section-reveal group relative rounded-2xl overflow-hidden bg-card/90 backdrop-blur-sm border border-border/70 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+              style={{ animationDelay: `${index * 0.08}s` }}
             >
               <div className="relative h-56 w-full">
                 <Image

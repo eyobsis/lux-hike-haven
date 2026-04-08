@@ -58,9 +58,9 @@ export default function HomePage() {
         <AmenitiesSection />
         <HikingGuide />
 
-        <section className="py-24 bg-gradient-to-b from-slate-50/80 via-background to-slate-50/60 border-y border-border/60">
+        <section className="section-divider section-parallax-soft py-24 bg-gradient-to-b from-slate-50/80 via-background to-slate-50/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
+            <div className="section-reveal text-center mb-10">
               <p className="inline-flex items-center rounded-full bg-secondary/10 text-secondary px-4 py-1.5 text-xs font-semibold tracking-wide">
                 Multilingual Hiking Guides
               </p>
@@ -75,7 +75,10 @@ export default function HomePage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-              <article className="rounded-2xl border border-border/70 bg-card/90 backdrop-blur p-7 shadow-soft hover:shadow-medium transition-all duration-300">
+              <article
+                className="section-reveal rounded-2xl border border-border/70 bg-card/90 backdrop-blur p-7 shadow-soft hover:shadow-medium transition-all duration-300"
+                style={{ animationDelay: "0.08s" }}
+              >
                 <h3 className="text-2xl font-bold text-foreground mb-3">
                   For Dutch tourists: Wandelen in Luxemburg
                 </h3>
@@ -91,7 +94,10 @@ export default function HomePage() {
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </article>
-              <article className="rounded-2xl border border-border/70 bg-card/90 backdrop-blur p-7 shadow-soft hover:shadow-medium transition-all duration-300">
+              <article
+                className="section-reveal rounded-2xl border border-border/70 bg-card/90 backdrop-blur p-7 shadow-soft hover:shadow-medium transition-all duration-300"
+                style={{ animationDelay: "0.16s" }}
+              >
                 <h3 className="text-2xl font-bold text-foreground mb-3">
                   Full English Hiking Hub
                 </h3>
@@ -107,7 +113,10 @@ export default function HomePage() {
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </article>
-              <article className="rounded-2xl border border-border/70 bg-card/90 backdrop-blur p-7 shadow-soft hover:shadow-medium transition-all duration-300">
+              <article
+                className="section-reveal rounded-2xl border border-border/70 bg-card/90 backdrop-blur p-7 shadow-soft hover:shadow-medium transition-all duration-300"
+                style={{ animationDelay: "0.24s" }}
+              >
                 <h3 className="text-2xl font-bold text-foreground mb-3">
                   Bilingual Hiking Blog
                 </h3>

@@ -111,7 +111,7 @@ export default function DutchStayNearTrailsPage() {
           <span>Overnachten bij wandelroutes</span>
         </nav>
 
-        <header className="mb-10">
+        <header className="section-reveal mb-10">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
             Overnachten bij wandelroutes in Luxemburg
           </h1>
@@ -122,47 +122,68 @@ export default function DutchStayNearTrailsPage() {
           </p>
         </header>
 
-        <section className="grid gap-4 md:grid-cols-3 mb-12">
-          <article className="rounded-xl border border-border bg-card p-5">
+        <section className="section-divider section-parallax-soft section-reveal grid gap-4 md:grid-cols-3 mb-12">
+          <article
+            className="section-reveal rounded-xl border border-border bg-card p-5"
+            style={{ animationDelay: "0.08s" }}
+          >
             <p className="text-sm text-muted-foreground">Capaciteit</p>
             <p className="text-2xl font-bold text-foreground">Tot 7 gasten</p>
           </article>
-          <article className="rounded-xl border border-border bg-card p-5">
+          <article
+            className="section-reveal rounded-xl border border-border bg-card p-5"
+            style={{ animationDelay: "0.16s" }}
+          >
             <p className="text-sm text-muted-foreground">Indeling</p>
             <p className="text-2xl font-bold text-foreground">3 slaapkamers, 2 badkamers</p>
           </article>
-          <article className="rounded-xl border border-border bg-card p-5">
+          <article
+            className="section-reveal rounded-xl border border-border bg-card p-5"
+            style={{ animationDelay: "0.24s" }}
+          >
             <p className="text-sm text-muted-foreground">Pluspunt</p>
             <p className="text-2xl font-bold text-foreground">Parkeren en centrale ligging</p>
           </article>
         </section>
 
-        <section className="mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+        <section className="section-divider section-parallax-soft section-reveal mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 className="text-3xl font-semibold text-foreground mb-4">
             Waarom deze locatie werkt voor wandelaars
           </h2>
           <div className="grid gap-4 md:grid-cols-2">
-            <article className="rounded-lg border border-border/70 bg-background p-4">
+            <article
+              className="section-reveal rounded-lg border border-border/70 bg-background p-4"
+              style={{ animationDelay: "0.08s" }}
+            >
               <h3 className="font-semibold text-foreground mb-2">Minder reistijd tussen routes</h3>
               <p className="text-sm text-muted-foreground">
                 Je hoeft niet dagelijks van accommodatie te wisselen, waardoor je
                 meer effectieve wandeltijd overhoudt.
               </p>
             </article>
-            <article className="rounded-lg border border-border/70 bg-background p-4">
+            <article
+              className="section-reveal rounded-lg border border-border/70 bg-background p-4"
+              style={{ animationDelay: "0.16s" }}
+            >
               <h3 className="font-semibold text-foreground mb-2">Gemak voor groepen</h3>
               <p className="text-sm text-muted-foreground">
                 De indeling met meerdere slaapkamers en badkamers past goed bij
                 gezinnen en vriendengroepen.
               </p>
             </article>
-            <article className="rounded-lg border border-border/70 bg-background p-4">
+            <article
+              className="section-reveal rounded-lg border border-border/70 bg-background p-4"
+              style={{ animationDelay: "0.24s" }}
+            >
               <h3 className="font-semibold text-foreground mb-2">Dicht bij voorzieningen</h3>
               <p className="text-sm text-muted-foreground">
                 Praktisch voor boodschappen, eten en herstel na een actieve dag.
               </p>
             </article>
-            <article className="rounded-lg border border-border/70 bg-background p-4">
+            <article
+              className="section-reveal rounded-lg border border-border/70 bg-background p-4"
+              style={{ animationDelay: "0.32s" }}
+            >
               <h3 className="font-semibold text-foreground mb-2">Betere weekendlogistiek</h3>
               <p className="text-sm text-muted-foreground">
                 Combineer meerdere regio's in een korte trip zonder gehaaste planning.
@@ -171,7 +192,7 @@ export default function DutchStayNearTrailsPage() {
           </div>
         </section>
 
-        <section className="mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+        <section className="section-divider section-parallax-soft section-reveal mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 className="text-3xl font-semibold text-foreground mb-4">
             Beschikbaarheid en boeking
           </h2>
@@ -197,7 +218,7 @@ export default function DutchStayNearTrailsPage() {
           </div>
         </section>
 
-        <section>
+        <section className="section-divider section-parallax-soft section-reveal">
           <h2 className="text-3xl font-semibold text-foreground mb-4">Veelgestelde vragen</h2>
           <div className="space-y-3">
             {faqItems.map((item) => (

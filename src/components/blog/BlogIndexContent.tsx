@@ -75,11 +75,11 @@ export default function BlogIndexContent({ locale }: BlogIndexContentProps) {
 
   return (
     <main lang={locale === "nl" ? "nl-NL" : "en"} className="bg-background pt-24 pb-16">
-      <section className="relative overflow-hidden border-b border-border/70 bg-gradient-to-br from-emerald-50 via-background to-sky-50">
+      <section className="section-parallax-soft relative overflow-hidden border-b border-border/70 bg-gradient-to-br from-emerald-50 via-background to-sky-50">
         <div className="pointer-events-none absolute -left-20 top-0 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
         <div className="pointer-events-none absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-secondary/20 blur-3xl" />
 
-        <div className="container relative mx-auto px-4 pb-14 pt-12 sm:px-6 lg:px-8">
+        <div className="section-reveal container relative mx-auto px-4 pb-14 pt-12 sm:px-6 lg:px-8">
           <nav className="mb-6 text-sm text-muted-foreground">
             <Link href={seoRoutes.home} className="hover:text-primary">
               Home
@@ -149,9 +149,9 @@ export default function BlogIndexContent({ locale }: BlogIndexContentProps) {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-14 sm:px-6 lg:px-8">
+      <section className="section-divider section-parallax-soft section-reveal container mx-auto px-4 py-14 sm:px-6 lg:px-8">
         {featured && (
-          <div className="mb-8">
+          <div className="section-reveal mb-8">
             <BlogCard
               post={featured}
               href={getBlogPostPath(locale, featured.slug)}
@@ -162,18 +162,23 @@ export default function BlogIndexContent({ locale }: BlogIndexContentProps) {
         )}
 
         <div className="grid gap-6 md:grid-cols-2">
-          {rest.map((post) => (
-            <BlogCard
+          {rest.map((post, index) => (
+            <div
               key={`${post.locale}-${post.slug}`}
-              post={post}
-              href={getBlogPostPath(locale, post.slug)}
-              locale={locale}
-            />
+              className="section-reveal"
+              style={{ animationDelay: `${index * 0.08}s` }}
+            >
+              <BlogCard
+                post={post}
+                href={getBlogPostPath(locale, post.slug)}
+                locale={locale}
+              />
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="container mx-auto px-4 pb-8 sm:px-6 lg:px-8">
+      <section className="section-divider section-parallax-soft section-reveal container mx-auto px-4 pb-8 sm:px-6 lg:px-8">
         <div className="rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8">
           <div className="grid gap-5 md:grid-cols-[1.6fr_1fr] md:items-end">
             <div>

@@ -117,11 +117,11 @@ const HikingGuide = () => {
   return (
     <section
       id="hiking"
-      className="py-24 bg-gradient-to-b from-muted/45 via-background to-muted/35"
+      className="section-divider section-parallax-soft py-24 bg-gradient-to-b from-muted/45 via-background to-muted/35"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <header className="text-center mb-16 animate-fade-in">
+        <header className="section-reveal text-center mb-16">
           <p className="inline-flex items-center rounded-full bg-secondary/10 text-secondary px-4 py-1.5 text-xs font-semibold tracking-wide mb-4">
             Trail Discovery
           </p>
@@ -144,7 +144,7 @@ const HikingGuide = () => {
           {hikingTrails.map((trail, index) => (
             <article key={trail.id}>
               <Card
-                className="group overflow-hidden border border-border/70 bg-card/90 backdrop-blur-sm hover:shadow-medium transition-all duration-300 hover:-translate-y-1 animate-scale-in"
+                className="group overflow-hidden border border-border/70 bg-card/90 backdrop-blur-sm hover:shadow-medium transition-all duration-300 hover:-translate-y-1 section-reveal"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative overflow-hidden">
@@ -219,7 +219,7 @@ const HikingGuide = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-14 animate-fade-in">
+        <div className="section-reveal section-reveal-delay mt-14">
           <div className="relative overflow-hidden rounded-3xl border border-primary/35 bg-gradient-forest p-8 md:p-10 shadow-strong">
             <div className="absolute -top-16 -right-12 h-48 w-48 rounded-full bg-secondary/20 blur-3xl" />
             <div className="absolute -bottom-20 -left-12 h-56 w-56 rounded-full bg-accent/20 blur-3xl" />
