@@ -27,6 +27,14 @@ export const metadata: Metadata = {
       "A practical route overview to compare top Luxembourg hiking trails.",
     url: absoluteUrl(seoRoutes.enTrails),
     locale: "en_US",
+    images: [
+      {
+        url: siteConfig.defaultOgImage,
+        width: 1536,
+        height: 1024,
+        alt: "Luxembourg hiking trails overview",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

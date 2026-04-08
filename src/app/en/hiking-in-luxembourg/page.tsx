@@ -28,6 +28,14 @@ export const metadata: Metadata = {
       "Discover top routes and choose a practical accommodation base in Grevenmacher.",
     url: absoluteUrl(seoRoutes.enHub),
     locale: "en_US",
+    images: [
+      {
+        url: siteConfig.defaultOgImage,
+        width: 1536,
+        height: 1024,
+        alt: "Hiking in Luxembourg from a base in Grevenmacher",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

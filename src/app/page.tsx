@@ -10,7 +10,7 @@ import GrevenmacherSection from "@/components/GrevenmacherSection";
 import CtaReserveSection from "@/components/CtaReserveSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
-import { absoluteUrl, seoRoutes } from "@/lib/site";
+import { absoluteUrl, seoRoutes, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Wandelen in Luxemburg | Verblijf voor Nederlandse wandelaars",
@@ -39,6 +39,14 @@ export const metadata: Metadata = {
       "Routes, planning en verblijf voor toeristen uit Nederland die willen wandelen in Luxemburg.",
     url: absoluteUrl(seoRoutes.home),
     locale: "nl_NL",
+    images: [
+      {
+        url: siteConfig.defaultOgImage,
+        width: 1536,
+        height: 1024,
+        alt: "Wandelen in Luxemburg met verblijf in Grevenmacher",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

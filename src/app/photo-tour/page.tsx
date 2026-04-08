@@ -17,6 +17,14 @@ export const metadata: Metadata = {
     description:
       "See all rooms and amenities before booking your hiking stay in Luxembourg.",
     url: absoluteUrl(seoRoutes.photoTour),
+    images: [
+      {
+        url: siteConfig.defaultOgImage,
+        width: 1536,
+        height: 1024,
+        alt: "Apartment photo tour in Grevenmacher",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
