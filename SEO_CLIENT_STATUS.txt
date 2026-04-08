@@ -1,5 +1,5 @@
 LUX TRAVELER SEO - CLIENT STATUS
-Date: 2026-04-02
+Date: 2026-04-08
 Website: https://luxtraveler.eu
 Main target: Dutch tourists searching for "wandelen in Luxemburg"
 
@@ -16,6 +16,10 @@ Completed:
   - /nl/wandelweekend-luxemburg
   - /nl/mullerthal-wandeling
   - /nl/overnachten-bij-wandelroutes-luxemburg
+  - /nl/wandelen-met-kinderen-luxemburg
+  - /nl/seizoenswandelroutes-luxemburg
+  - /nl/beginners-wandelroutes-luxemburg
+  - /nl/regenachtige-dag-luxemburg
 - New English SEO pages:
   - /en/hiking-in-luxembourg
   - /en/luxembourg-hiking-trails
@@ -24,9 +28,14 @@ Completed:
 - Internal linking improvements from navigation, footer, and homepage.
 - Structured data additions (Organization, LodgingBusiness, FAQ/ItemList where relevant).
 - Conversion-focused trust and booking blocks on key NL/EN landing pages.
+- Intent differentiation:
+  - Home page is now positioned as brand/conversion gateway.
+  - NL hub is now reinforced as the primary Dutch informational page.
 - Technical hardening:
   - Redirect rules for variant URLs.
   - TypeScript config cleanup.
+- Monthly CTR + internal anchor refresh runbook:
+  - SEO_CTR_TEST_RUNBOOK.md
 
 Current result:
 - The website now has a stronger Dutch ranking footprint and conversion-ready funnel pages.
@@ -41,8 +50,8 @@ Remaining:
 - Run post-deploy checks from DEPLOY_INDEXING_CHECKLIST.txt.
 - Submit sitemap in Google Search Console.
 - Request indexing for new Dutch and English SEO pages.
-- Optional: publish next Dutch content page for families (children-focused intent).
 - Start backlink outreach in Dutch travel/hiking websites.
+- Start monthly title/description CTR tests and internal anchor refresh cycle.
 
 ========================================
 3) PROPOSED ETA PLAN
@@ -53,7 +62,7 @@ Phase 1 (Day 1-2)
 - Submit sitemap and request indexing for new SEO pages.
 
 Phase 2 (Week 1)
-- Publish one additional Dutch intent page (family-focused).
+- Request indexing for newly added Dutch growth pages.
 - Enrich route details (difficulty, transport, seasonality).
 
 Phase 3 (Weeks 2-4)

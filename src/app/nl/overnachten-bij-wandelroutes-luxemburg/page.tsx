@@ -240,6 +240,17 @@ export default function DutchStayNearTrailsPage() {
               Vergelijk wandelroutes
             </Link>
           </div>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm">
+            <Link href={seoRoutes.nlFamily} className="font-semibold text-primary hover:text-primary-hover">
+              Gezinsvriendelijke planning
+            </Link>
+            <Link href={seoRoutes.nlBeginner} className="font-semibold text-primary hover:text-primary-hover">
+              Beginnersroutes in Luxemburg
+            </Link>
+            <Link href={seoRoutes.nlRainyDay} className="font-semibold text-primary hover:text-primary-hover">
+              Regenachtige dag alternatieven
+            </Link>
+          </div>
         </section>
 
         <section className="section-divider section-parallax-soft section-reveal">

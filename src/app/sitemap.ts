@@ -15,6 +15,10 @@ const routeSourceFiles: Record<string, string[]> = {
   [seoRoutes.nlStayNearTrails]: [
     "src/app/nl/overnachten-bij-wandelroutes-luxemburg/page.tsx",
   ],
+  [seoRoutes.nlFamily]: ["src/app/nl/wandelen-met-kinderen-luxemburg/page.tsx"],
+  [seoRoutes.nlSeasonal]: ["src/app/nl/seizoenswandelroutes-luxemburg/page.tsx"],
+  [seoRoutes.nlBeginner]: ["src/app/nl/beginners-wandelroutes-luxemburg/page.tsx"],
+  [seoRoutes.nlRainyDay]: ["src/app/nl/regenachtige-dag-luxemburg/page.tsx"],
   [seoRoutes.photoTour]: ["src/app/photo-tour/page.tsx"],
 };
 
@@ -164,6 +168,58 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           en: absoluteUrl(seoRoutes.enHub),
           "nl-NL": absoluteUrl(seoRoutes.nlStayNearTrails),
           "x-default": absoluteUrl(seoRoutes.nlStayNearTrails),
+        },
+      },
+    },
+    {
+      url: absoluteUrl(seoRoutes.nlFamily),
+      lastModified: routeLastModified.get(seoRoutes.nlFamily) ?? fallbackLastModified,
+      changeFrequency: "weekly",
+      priority: 0.81,
+      alternates: {
+        languages: {
+          en: absoluteUrl(seoRoutes.enHub),
+          "nl-NL": absoluteUrl(seoRoutes.nlFamily),
+          "x-default": absoluteUrl(seoRoutes.nlFamily),
+        },
+      },
+    },
+    {
+      url: absoluteUrl(seoRoutes.nlSeasonal),
+      lastModified: routeLastModified.get(seoRoutes.nlSeasonal) ?? fallbackLastModified,
+      changeFrequency: "weekly",
+      priority: 0.81,
+      alternates: {
+        languages: {
+          en: absoluteUrl(seoRoutes.enHub),
+          "nl-NL": absoluteUrl(seoRoutes.nlSeasonal),
+          "x-default": absoluteUrl(seoRoutes.nlSeasonal),
+        },
+      },
+    },
+    {
+      url: absoluteUrl(seoRoutes.nlBeginner),
+      lastModified: routeLastModified.get(seoRoutes.nlBeginner) ?? fallbackLastModified,
+      changeFrequency: "weekly",
+      priority: 0.81,
+      alternates: {
+        languages: {
+          en: absoluteUrl(seoRoutes.enHub),
+          "nl-NL": absoluteUrl(seoRoutes.nlBeginner),
+          "x-default": absoluteUrl(seoRoutes.nlBeginner),
+        },
+      },
+    },
+    {
+      url: absoluteUrl(seoRoutes.nlRainyDay),
+      lastModified: routeLastModified.get(seoRoutes.nlRainyDay) ?? fallbackLastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          en: absoluteUrl(seoRoutes.enHub),
+          "nl-NL": absoluteUrl(seoRoutes.nlRainyDay),
+          "x-default": absoluteUrl(seoRoutes.nlRainyDay),
         },
       },
     },

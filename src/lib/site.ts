@@ -53,7 +53,7 @@ export const siteConfig = {
   siteName: "Lux Traveler",
   brandName: "Lux Traveler Hiking Haven",
   description:
-    "Wandelen in Luxemburg (ook gezocht als 'wanderen in Luxembourg') met route-inspiratie en comfortabel verblijf in Grevenmacher. Ideaal voor Nederlandse toeristen.",
+    "Design apartment in Grevenmacher for hikers planning a comfortable Luxembourg stay, with Dutch and English route guides.",
   url: resolveSiteUrl(),
   defaultOgImage: "/Central-stylish/dinning-room.avif",
 };
@@ -71,6 +71,10 @@ export const seoRoutes = {
   nlWeekend: "/nl/wandelweekend-luxemburg",
   nlMullerthal: "/nl/mullerthal-wandeling",
   nlStayNearTrails: "/nl/overnachten-bij-wandelroutes-luxemburg",
+  nlFamily: "/nl/wandelen-met-kinderen-luxemburg",
+  nlSeasonal: "/nl/seizoenswandelroutes-luxemburg",
+  nlBeginner: "/nl/beginners-wandelroutes-luxemburg",
+  nlRainyDay: "/nl/regenachtige-dag-luxemburg",
 };
 
 export const siteHost = new URL(siteConfig.url).host;

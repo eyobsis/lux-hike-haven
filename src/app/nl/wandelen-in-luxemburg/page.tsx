@@ -7,7 +7,7 @@ import { absoluteUrl, seoRoutes, siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Wandelen in Luxemburg | Complete gids voor Nederlanders",
   description:
-    "Plan jouw wandelvakantie in Luxemburg. Voor zoekopdrachten als 'wanderen in Luxembourg' en 'wandelen in Luxemburg' met routes, reistips en verblijf in Grevenmacher.",
+    "Primaire Nederlandse informatieve pagina voor wandelen in Luxemburg, met routes, reistips, en verblijf in Grevenmacher.",
   keywords: [
     "wanderen in Luxembourg",
     "wandelen in Luxemburg",
@@ -15,6 +15,10 @@ export const metadata: Metadata = {
     "wandelen in Luxemburg vanuit Nederland",
     "wandelroutes Luxemburg",
     "wandelweekend Luxemburg",
+    "wandelen met kinderen Luxemburg",
+    "beginners wandelroutes Luxemburg",
+    "seizoenswandelroutes Luxemburg",
+    "regenachtige dag Luxemburg",
     "Mullerthal wandelen",
     "overnachten Luxemburg wandelen",
   ],
@@ -135,7 +139,8 @@ export default function DutchHikingHubPage() {
             Zoek je op "wanderen in Luxembourg" of "wandelen in Luxemburg"?
             Deze pagina helpt je snel met de beste regio's, route-inspiratie en
             verblijfstips. Vanuit Grevenmacher bereik je meerdere topwandelingen
-            zonder lange reistijd.
+            zonder lange reistijd. Zie dit als de hoofdgids voor alle
+            Nederlandstalige wandelintenties.
           </p>
         </header>
 
@@ -202,6 +207,55 @@ export default function DutchHikingHubPage() {
             <Link href={seoRoutes.nlBlog} className="font-semibold text-primary hover:text-primary-hover">
               Lees de Wandelen in Luxemburg blog
             </Link>
+          </div>
+        </section>
+
+        <section className="section-divider section-parallax-soft section-reveal mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+          <h2 className="text-3xl font-semibold text-foreground mb-4">
+            Kies je intentpagina voor diepere planning
+          </h2>
+          <p className="text-muted-foreground mb-5 leading-relaxed">
+            Gebruik deze hoofdgids voor overzicht, en ga daarna door naar de
+            pagina die precies past bij je situatie. Deze interne routes zijn
+            bewust verschillend om overlap in zoekintentie te vermijden.
+          </p>
+          <div className="grid gap-4 md:grid-cols-2">
+            <article className="rounded-lg border border-border/70 bg-background p-4">
+              <h3 className="font-semibold text-foreground mb-2">Wandelen met kinderen</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                Gezinsvriendelijke afstanden, pauzetips en praktische dagindeling.
+              </p>
+              <Link href={seoRoutes.nlFamily} className="font-semibold text-primary hover:text-primary-hover">
+                Naar gezinsvriendelijke wandelroutes
+              </Link>
+            </article>
+            <article className="rounded-lg border border-border/70 bg-background p-4">
+              <h3 className="font-semibold text-foreground mb-2">Beginnersroutes</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                Start met makkelijke trajecten als je nog weinig bergoefening hebt.
+              </p>
+              <Link href={seoRoutes.nlBeginner} className="font-semibold text-primary hover:text-primary-hover">
+                Bekijk makkelijke wandelroutes
+              </Link>
+            </article>
+            <article className="rounded-lg border border-border/70 bg-background p-4">
+              <h3 className="font-semibold text-foreground mb-2">Seizoensplanning</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                Kies routes per lente, zomer, herfst of winter voor betere omstandigheden.
+              </p>
+              <Link href={seoRoutes.nlSeasonal} className="font-semibold text-primary hover:text-primary-hover">
+                Vergelijk seizoenswandelroutes
+              </Link>
+            </article>
+            <article className="rounded-lg border border-border/70 bg-background p-4">
+              <h3 className="font-semibold text-foreground mb-2">Regenalternatieven</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                Houd je weekend sterk met fallback-opties voor slecht weer.
+              </p>
+              <Link href={seoRoutes.nlRainyDay} className="font-semibold text-primary hover:text-primary-hover">
+                Plan een regenachtige dag slim
+              </Link>
+            </article>
           </div>
         </section>
 

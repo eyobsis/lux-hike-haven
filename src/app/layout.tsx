@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Wandelen in Luxemburg | Hiking in Luxembourg vanuit Grevenmacher",
+    default: "Lux Traveler | Hiking apartment in Grevenmacher",
     template: "%s | Lux Traveler",
   },
   description: siteConfig.description,
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     canonical: seoRoutes.home,
   },
   openGraph: {
-    title: "Wandelen in Luxemburg | Hiking in Luxembourg vanuit Grevenmacher",
+    title: "Lux Traveler | Hiking apartment in Grevenmacher",
     description: siteConfig.description,
     url: absoluteUrl(seoRoutes.home),
     siteName: siteConfig.brandName,
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Wandelen in Luxemburg | Voor Nederlandse toeristen",
+    title: "Lux Traveler | Stay in Grevenmacher",
     description: siteConfig.description,
     images: [siteConfig.defaultOgImage],
   },

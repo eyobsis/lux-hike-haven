@@ -1,5 +1,5 @@
 LUX TRAVELER SEO EXECUTION STATUS
-Updated: 2026-04-02
+Updated: 2026-04-08
 Primary domain: https://luxtraveler.eu
 Primary target query: "wandelen in Luxemburg" (Dutch tourists from Holland)
 
@@ -106,8 +106,40 @@ L) Technical hardening
 - Added CSS module declaration for side-effect CSS import typing support.
   File: global.d.ts
 
+N) Phase 3 growth implementation (1-3 month window)
+- Reduced home vs NL-hub cannibalization by repositioning homepage metadata toward brand/conversion intent.
+  Files:
+  - src/app/page.tsx
+  - src/app/layout.tsx
+  - src/lib/site.ts
+- Expanded Dutch cluster depth with 4 new intent pages:
+  - /nl/wandelen-met-kinderen-luxemburg
+  - /nl/seizoenswandelroutes-luxemburg
+  - /nl/beginners-wandelroutes-luxemburg
+  - /nl/regenachtige-dag-luxemburg
+  Files:
+  - src/app/nl/wandelen-met-kinderen-luxemburg/page.tsx
+  - src/app/nl/seizoenswandelroutes-luxemburg/page.tsx
+  - src/app/nl/beginners-wandelroutes-luxemburg/page.tsx
+  - src/app/nl/regenachtige-dag-luxemburg/page.tsx
+- Added intent-driven internal anchors between NL hub and cluster pages.
+  Files:
+  - src/app/nl/wandelen-in-luxemburg/page.tsx
+  - src/app/nl/wandelroutes-luxemburg/page.tsx
+  - src/app/nl/wandelweekend-luxemburg/page.tsx
+  - src/app/nl/mullerthal-wandeling/page.tsx
+  - src/app/nl/overnachten-bij-wandelroutes-luxemburg/page.tsx
+  - src/components/Footer.tsx
+- Added redirects and sitemap inclusion for all new Phase 3 pages.
+  Files:
+  - next.config.mjs
+  - src/app/sitemap.ts
+- Added monthly CTR testing and anchor-refresh operational runbook.
+  File:
+  - SEO_CTR_TEST_RUNBOOK.md
+
 ==================================================
-3) REMAINING WORK (NEXT PHASE)
+3) REMAINING WORK (OPERATIONS)
 ==================================================
 STATUS: PENDING
 
@@ -122,11 +154,10 @@ A) Deployment and indexing operations
 4. Request indexing for new NL/EN SEO pages.
 5. Run the checklist in DEPLOY_INDEXING_CHECKLIST.txt.
 
-B) Dutch content expansion (important for rankings)
-1. Optional next page for depth:
-  - wandelen-luxemburg-met-kinderen
-2. Continue adding practical travel content for Dutch users (from Holland to Luxembourg).
-3. Add more unique local sections per page (parking, train access, best season, difficulty details).
+B) Dutch content expansion (optional next layer)
+1. Add supporting blog posts for each new Phase 3 intent page.
+2. Extend each intent page with richer local proof (parking, train access, area timings).
+3. Add EN equivalents only where search demand justifies it.
 
 C) Authority and backlinks (off-page SEO)
 1. Outreach to Dutch hiking/travel blogs.
@@ -135,10 +166,10 @@ C) Authority and backlinks (off-page SEO)
 4. Publish linkable assets (printable itineraries, route packs, seasonal updates).
 
 D) Measurement and iteration
-1. Set up query/page tracking for NL keyword cluster.
+1. Execute monthly runbook in SEO_CTR_TEST_RUNBOOK.md.
 2. Track CTR by page and improve title/meta variants monthly.
 3. Track booking conversions from SEO pages.
-4. Build monthly refresh cycle based on Search Console data.
+4. Refresh internal anchors for winner pages every month.
 
 E) Optional technical cleanup
 1. Re-run full build/typecheck in CI and verify no regressions after tsconfig update.

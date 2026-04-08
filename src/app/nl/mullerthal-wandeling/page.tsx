@@ -233,6 +233,17 @@ export default function DutchMullerthalPage() {
               Overnachten bij wandelroutes
             </Link>
           </div>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm">
+            <Link href={seoRoutes.nlSeasonal} className="font-semibold text-primary hover:text-primary-hover">
+              Check Mullerthal per seizoen
+            </Link>
+            <Link href={seoRoutes.nlBeginner} className="font-semibold text-primary hover:text-primary-hover">
+              Makkelijkere routes voor starters
+            </Link>
+            <Link href={seoRoutes.nlRainyDay} className="font-semibold text-primary hover:text-primary-hover">
+              Slecht weer alternatief
+            </Link>
+          </div>
         </section>
 
         <section className="section-divider section-parallax-soft section-reveal">

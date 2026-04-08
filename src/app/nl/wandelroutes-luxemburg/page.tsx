@@ -154,6 +154,18 @@ export default function DutchTrailsPage() {
             <Link href={seoRoutes.nlStayNearTrails} className="font-semibold text-primary hover:text-primary-hover">
               Overnachten bij wandelroutes
             </Link>
+            <Link href={seoRoutes.nlBeginner} className="font-semibold text-primary hover:text-primary-hover">
+              Beginnersvriendelijke routes
+            </Link>
+            <Link href={seoRoutes.nlSeasonal} className="font-semibold text-primary hover:text-primary-hover">
+              Routes kiezen per seizoen
+            </Link>
+            <Link href={seoRoutes.nlFamily} className="font-semibold text-primary hover:text-primary-hover">
+              Wandelen met kinderen
+            </Link>
+            <Link href={seoRoutes.nlRainyDay} className="font-semibold text-primary hover:text-primary-hover">
+              Regenachtige dag alternatieven
+            </Link>
             <Link href={seoRoutes.enTrails} className="font-semibold text-primary hover:text-primary-hover">
               View the English trail list
             </Link>

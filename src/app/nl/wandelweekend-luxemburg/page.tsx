@@ -230,6 +230,17 @@ export default function DutchWeekendPage() {
               Mullerthal wandeling plannen
             </Link>
           </div>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm">
+            <Link href={seoRoutes.nlSeasonal} className="font-semibold text-primary hover:text-primary-hover">
+              Beste seizoensroutes kiezen
+            </Link>
+            <Link href={seoRoutes.nlBeginner} className="font-semibold text-primary hover:text-primary-hover">
+              Rustig starten met beginnersroutes
+            </Link>
+            <Link href={seoRoutes.nlRainyDay} className="font-semibold text-primary hover:text-primary-hover">
+              Regenachtig weekend? Fallback-plan
+            </Link>
+          </div>
         </section>
 
         <section className="section-divider section-parallax-soft section-reveal">

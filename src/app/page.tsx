@@ -13,17 +13,17 @@ import ContactSection from "@/components/ContactSection";
 import { absoluteUrl, seoRoutes, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Wandelen in Luxemburg | Verblijf voor Nederlandse wandelaars",
+  title: "Lux Traveler | Design apartment in Grevenmacher",
   description:
-    "Voor Nederlanders die zoeken op 'wanderen in Luxembourg' of 'wandelen in Luxemburg': ontdek routes en boek een comfortabele uitvalsbasis in Grevenmacher.",
+    "Book a refined apartment in Grevenmacher with fast access to Luxembourg hiking regions. Use our Dutch and English guide hubs for route planning.",
   keywords: [
-    "wanderen in Luxembourg",
-    "wandelen in Luxemburg",
-    "wandelen in Luxembourg",
-    "wandelroutes Luxemburg",
-    "wandelvakantie Luxemburg",
+    "Lux Traveler",
+    "apartment Grevenmacher",
+    "hiking stay Luxembourg",
+    "where to stay in Luxembourg",
+    "holiday apartment Luxembourg",
     "overnachten in Grevenmacher",
-    "hiking in Luxembourg",
+    "Luxembourg hiking base",
   ],
   alternates: {
     canonical: seoRoutes.home,
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Wandelen in Luxemburg | Verblijf voor Nederlandse wandelaars",
+    title: "Lux Traveler | Apartment base for Luxembourg hikes",
     description:
-      "Routes, planning en verblijf voor toeristen uit Nederland die willen wandelen in Luxemburg.",
+      "Conversion-first home page for booking a comfortable Grevenmacher base near Luxembourg trails.",
     url: absoluteUrl(seoRoutes.home),
     locale: "nl_NL",
     images: [
@@ -44,15 +44,15 @@ export const metadata: Metadata = {
         url: siteConfig.defaultOgImage,
         width: 1536,
         height: 1024,
-        alt: "Wandelen in Luxemburg met verblijf in Grevenmacher",
+        alt: "Lux Traveler apartment in Grevenmacher for hiking trips",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Wandelen in Luxemburg | Voor Nederlandse toeristen",
+    title: "Lux Traveler | Stay in Grevenmacher",
     description:
-      "Complete gids met wandelroutes en verblijf in Grevenmacher voor jouw trip naar Luxemburg.",
+      "Book a stylish hiking base in Grevenmacher and use our NL/EN guide hubs for route planning.",
   },
 };
 
@@ -76,9 +76,9 @@ export default function HomePage() {
                 Choose Your Preferred Guide Language
               </h2>
               <p className="text-muted-foreground max-w-3xl mx-auto">
-                Use dedicated Dutch and English pages for route planning,
-                practical travel tips, and booking guidance. Dive into the
-                bilingual blog for deeper route strategy.
+                This home page is your booking gateway. Use the Dutch and
+                English hubs for informational route planning, and use the blog
+                for deeper hiking strategy.
               </p>
             </div>
 

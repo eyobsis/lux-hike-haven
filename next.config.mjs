@@ -49,6 +49,26 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/wandelen-met-kinderen-luxemburg",
+        destination: "/nl/wandelen-met-kinderen-luxemburg",
+        permanent: true,
+      },
+      {
+        source: "/seizoenswandelroutes-luxemburg",
+        destination: "/nl/seizoenswandelroutes-luxemburg",
+        permanent: true,
+      },
+      {
+        source: "/beginners-wandelroutes-luxemburg",
+        destination: "/nl/beginners-wandelroutes-luxemburg",
+        permanent: true,
+      },
+      {
+        source: "/regenachtige-dag-luxemburg",
+        destination: "/nl/regenachtige-dag-luxemburg",
+        permanent: true,
+      },
+      {
         source: "/hiking-in-luxembourg",
         destination: "/en/hiking-in-luxembourg",
         permanent: true,

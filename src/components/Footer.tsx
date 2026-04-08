@@ -132,6 +132,30 @@ const Footer = () => {
                 Wandelweekend Luxemburg
               </Link>
               <Link
+                href={seoRoutes.nlFamily}
+                className="block text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+              >
+                Wandelen met kinderen
+              </Link>
+              <Link
+                href={seoRoutes.nlBeginner}
+                className="block text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+              >
+                Beginnersroutes Luxemburg
+              </Link>
+              <Link
+                href={seoRoutes.nlSeasonal}
+                className="block text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+              >
+                Seizoenswandelroutes
+              </Link>
+              <Link
+                href={seoRoutes.nlRainyDay}
+                className="block text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+              >
+                Regenachtige dag planning
+              </Link>
+              <Link
                 href={seoRoutes.blog}
                 className="block text-primary-foreground/80 transition-colors hover:text-primary-foreground"
               >
