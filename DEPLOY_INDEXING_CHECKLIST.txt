@@ -60,6 +60,7 @@ C) GOOGLE SEARCH CONSOLE ACTIONS
    - https://luxtraveler.eu/nl/seizoenswandelroutes-luxemburg
    - https://luxtraveler.eu/nl/beginners-wandelroutes-luxemburg
    - https://luxtraveler.eu/nl/regenachtige-dag-luxemburg
+6. Execute full submission order from SEARCH_CONSOLE_SUBMISSION_PLAN.md.
 
 ==================================================
 D) FIRST 14-DAY MONITORING
