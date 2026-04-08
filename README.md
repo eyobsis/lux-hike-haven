@@ -42,9 +42,12 @@ Create a `.env.local` in the project root:
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
 NEXT_PUBLIC_EMAILJS_USER_ID=your_public_key_or_user_id
+NEXT_PUBLIC_SITE_URL=https://luxtraveler.eu
 ```
 
 Make sure your EmailJS template expects the fields: `from_name`, `to_email`, `reply_to`, `message`.
+
+For SEO metadata, set `NEXT_PUBLIC_SITE_URL` to the canonical deployment domain. If omitted, production falls back to `https://luxtraveler.eu`.
 
 ## 📁 Project Structure (abridged)
 

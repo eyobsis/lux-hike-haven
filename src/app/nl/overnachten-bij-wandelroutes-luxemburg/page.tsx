@@ -84,6 +84,30 @@ export default function DutchStayNearTrailsPage() {
     },
     {
       "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: absoluteUrl(seoRoutes.home),
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Wandelen in Luxemburg",
+          item: absoluteUrl(seoRoutes.nlHub),
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Overnachten bij wandelroutes",
+          item: absoluteUrl(seoRoutes.nlStayNearTrails),
+        },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "FAQPage",
       mainEntity: faqItems.map((item) => ({
         "@type": "Question",

@@ -82,7 +82,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="nl-NL">
       <head>
         <meta name="geo.region" content="LU" />
         <meta name="geo.placename" content="Grevenmacher, Luxembourg" />

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getAirbnbGalleryUrl } from "@/lib/links";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { absoluteUrl, seoRoutes } from "@/lib/site";
+import { absoluteUrl, seoRoutes, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Apartment Photo Tour in Grevenmacher",
@@ -17,6 +17,13 @@ export const metadata: Metadata = {
     description:
       "See all rooms and amenities before booking your hiking stay in Luxembourg.",
     url: absoluteUrl(seoRoutes.photoTour),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Apartment Photo Tour in Grevenmacher",
+    description:
+      "Explore the apartment photo tour before booking your hiking stay in Luxembourg.",
+    images: [siteConfig.defaultOgImage],
   },
 };
 
@@ -53,9 +60,46 @@ const categories: Category[] = [
 
 export default function PhotoTourPage() {
   const airbnbGalleryUrl = getAirbnbGalleryUrl("photo-tour-page");
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Apartment Photo Tour in Grevenmacher",
+      description:
+        "Explore every room and detail before booking your hiking stay in Luxembourg.",
+      url: absoluteUrl(seoRoutes.photoTour),
+      inLanguage: "en",
+      isPartOf: {
+        "@type": "WebSite",
+        name: siteConfig.brandName,
+        url: siteConfig.url,
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: absoluteUrl(seoRoutes.home),
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Photo tour",
+          item: absoluteUrl(seoRoutes.photoTour),
+        },
+      ],
+    },
+  ];
 
   return (
-    <main className="section-divider section-parallax-soft bg-gradient-to-b from-background via-slate-50/60 to-background">
+    <main
+      lang="en"
+      className="section-divider section-parallax-soft bg-gradient-to-b from-background via-slate-50/60 to-background"
+    >
       <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="section-reveal mb-8">
           <h1 className="text-3xl font-semibold">Photo tour</h1>
@@ -100,6 +144,11 @@ export default function PhotoTourPage() {
           </Link>
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </main>
   );
 }

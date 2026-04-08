@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
+  const host = new URL(siteConfig.url).host;
+
   return {
     rules: [
       {
@@ -14,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: absoluteUrl("/sitemap.xml"),
-    host: "luxtraveler.eu",
+    host,
   };
 }

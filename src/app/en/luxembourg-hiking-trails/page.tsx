@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { hikingRoutes } from "@/lib/hiking-routes";
-import { absoluteUrl, seoRoutes } from "@/lib/site";
+import { absoluteUrl, seoRoutes, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Luxembourg Hiking Trails | Distances, Duration, Difficulty",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     languages: {
       en: seoRoutes.enTrails,
       "nl-NL": seoRoutes.nlTrails,
-      "x-default": seoRoutes.enTrails,
+      "x-default": seoRoutes.nlTrails,
     },
   },
   openGraph: {
@@ -28,23 +28,56 @@ export const metadata: Metadata = {
     url: absoluteUrl(seoRoutes.enTrails),
     locale: "en_US",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Luxembourg Hiking Trails | Practical Route Overview",
+    description:
+      "Compare top Luxembourg trails by distance, duration, and difficulty for smarter trip planning.",
+    images: [siteConfig.defaultOgImage],
+  },
 };
 
 export default function EnglishTrailsPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Luxembourg Hiking Trails",
-    itemListElement: hikingRoutes.map((route, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: route.name,
-      description: route.summaryEn,
-    })),
-  };
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Luxembourg Hiking Trails",
+      itemListElement: hikingRoutes.map((route, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: route.name,
+        description: route.summaryEn,
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: absoluteUrl(seoRoutes.home),
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Hiking in Luxembourg",
+          item: absoluteUrl(seoRoutes.enHub),
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Luxembourg hiking trails",
+          item: absoluteUrl(seoRoutes.enTrails),
+        },
+      ],
+    },
+  ];
 
   return (
-    <main className="bg-background pt-24 pb-16">
+    <main lang="en-US" className="bg-background pt-24 pb-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <nav className="text-sm text-muted-foreground mb-6">
           <Link href={seoRoutes.home} className="hover:text-primary">

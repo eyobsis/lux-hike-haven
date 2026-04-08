@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     languages: {
       en: seoRoutes.enHub,
       "nl-NL": seoRoutes.nlHub,
-      "x-default": seoRoutes.enHub,
+      "x-default": seoRoutes.nlHub,
     },
   },
   openGraph: {
@@ -28,6 +28,13 @@ export const metadata: Metadata = {
       "Discover top routes and choose a practical accommodation base in Grevenmacher.",
     url: absoluteUrl(seoRoutes.enHub),
     locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hiking in Luxembourg | Complete Guide for Trail Travelers",
+    description:
+      "Plan hiking in Luxembourg with route ideas, practical advice, and a central stay in Grevenmacher.",
+    images: [siteConfig.defaultOgImage],
   },
 };
 
@@ -67,6 +74,24 @@ export default function EnglishHikingHubPage() {
     },
     {
       "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: absoluteUrl(seoRoutes.home),
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Hiking in Luxembourg",
+          item: absoluteUrl(seoRoutes.enHub),
+        },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "FAQPage",
       mainEntity: faqItems.map((item) => ({
         "@type": "Question",
@@ -80,7 +105,7 @@ export default function EnglishHikingHubPage() {
   ];
 
   return (
-    <main className="bg-background pt-24 pb-16">
+    <main lang="en-US" className="bg-background pt-24 pb-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <nav className="text-sm text-muted-foreground mb-6">
           <Link href="/" className="hover:text-primary">

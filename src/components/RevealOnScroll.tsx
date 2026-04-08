@@ -1,10 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const revealSelector = ".section-reveal";
 
 export default function RevealOnScroll() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const root = document.documentElement;
     root.classList.add("reveal-ready");
@@ -47,7 +50,7 @@ export default function RevealOnScroll() {
       observer.disconnect();
       root.classList.remove("reveal-ready");
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

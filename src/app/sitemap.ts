@@ -1,20 +1,79 @@
 import type { MetadataRoute } from "next";
-import { getBlogPostPairs, getBlogPostPath } from "@/lib/blog";
+import { stat } from "node:fs/promises";
+import { join } from "node:path";
+import { getAllBlogPosts, getBlogPostPairs, getBlogPostPath } from "@/lib/blog";
 import { absoluteUrl, seoRoutes } from "@/lib/site";
 
-const now = new Date();
+const routeSourceFiles: Record<string, string[]> = {
+  [seoRoutes.home]: ["src/app/page.tsx"],
+  [seoRoutes.enHub]: ["src/app/en/hiking-in-luxembourg/page.tsx"],
+  [seoRoutes.nlHub]: ["src/app/nl/wandelen-in-luxemburg/page.tsx"],
+  [seoRoutes.enTrails]: ["src/app/en/luxembourg-hiking-trails/page.tsx"],
+  [seoRoutes.nlTrails]: ["src/app/nl/wandelroutes-luxemburg/page.tsx"],
+  [seoRoutes.nlWeekend]: ["src/app/nl/wandelweekend-luxemburg/page.tsx"],
+  [seoRoutes.nlMullerthal]: ["src/app/nl/mullerthal-wandeling/page.tsx"],
+  [seoRoutes.nlStayNearTrails]: [
+    "src/app/nl/overnachten-bij-wandelroutes-luxemburg/page.tsx",
+  ],
+  [seoRoutes.photoTour]: ["src/app/photo-tour/page.tsx"],
+};
 
-export default function sitemap(): MetadataRoute.Sitemap {
+const fallbackLastModified = new Date();
+
+async function getLatestFileModifiedDate(files: string[]): Promise<Date> {
+  const mtimes = await Promise.all(
+    files.map(async (file) => {
+      try {
+        const fileStat = await stat(join(process.cwd(), file));
+        return fileStat.mtime;
+      } catch {
+        return undefined;
+      }
+    })
+  );
+
+  const validTimes = mtimes
+    .filter((time): time is Date => Boolean(time))
+    .map((time) => time.getTime());
+
+  if (validTimes.length === 0) {
+    return fallbackLastModified;
+  }
+
+  return new Date(Math.max(...validTimes));
+}
+
+function getLatestBlogUpdatedAt(): Date {
+  const timestamps = getAllBlogPosts().map((post) => new Date(post.updatedAt).getTime());
+
+  if (timestamps.length === 0) {
+    return fallbackLastModified;
+  }
+
+  return new Date(Math.max(...timestamps));
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const routeLastModifiedEntries = await Promise.all(
+    Object.entries(routeSourceFiles).map(async ([route, files]) => {
+      const lastModified = await getLatestFileModifiedDate(files);
+      return [route, lastModified] as const;
+    })
+  );
+
+  const routeLastModified = new Map(routeLastModifiedEntries);
+  const latestBlogUpdate = getLatestBlogUpdatedAt();
+
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: absoluteUrl(seoRoutes.home),
-      lastModified: now,
+      lastModified: routeLastModified.get(seoRoutes.home) ?? fallbackLastModified,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: absoluteUrl(seoRoutes.enHub),
-      lastModified: now,
+      lastModified: routeLastModified.get(seoRoutes.enHub) ?? fallbackLastModified,
       changeFrequency: "weekly",
       priority: 0.9,
       alternates: {
@@ -27,7 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: absoluteUrl(seoRoutes.nlHub),
-      lastModified: now,
+      lastModified: routeLastModified.get(seoRoutes.nlHub) ?? fallbackLastModified,
       changeFrequency: "weekly",
       priority: 0.9,
       alternates: {
@@ -40,7 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: absoluteUrl(seoRoutes.enTrails),
-      lastModified: now,
+      lastModified: routeLastModified.get(seoRoutes.enTrails) ?? fallbackLastModified,
       changeFrequency: "weekly",
       priority: 0.85,
       alternates: {
@@ -53,7 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: absoluteUrl(seoRoutes.nlTrails),
-      lastModified: now,
+      lastModified: routeLastModified.get(seoRoutes.nlTrails) ?? fallbackLastModified,
       changeFrequency: "weekly",
       priority: 0.85,
       alternates: {
@@ -66,7 +125,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: absoluteUrl(seoRoutes.nlWeekend),
-      lastModified: now,
+      lastModified: routeLastModified.get(seoRoutes.nlWeekend) ?? fallbackLastModified,
       changeFrequency: "weekly",
       priority: 0.82,
       alternates: {
@@ -79,7 +138,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: absoluteUrl(seoRoutes.nlMullerthal),
-      lastModified: now,
+      lastModified: routeLastModified.get(seoRoutes.nlMullerthal) ?? fallbackLastModified,
       changeFrequency: "weekly",
       priority: 0.82,
       alternates: {
@@ -92,7 +151,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: absoluteUrl(seoRoutes.nlStayNearTrails),
-      lastModified: now,
+      lastModified:
+        routeLastModified.get(seoRoutes.nlStayNearTrails) ?? fallbackLastModified,
       changeFrequency: "weekly",
       priority: 0.82,
       alternates: {
@@ -105,7 +165,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: absoluteUrl(seoRoutes.photoTour),
-      lastModified: now,
+      lastModified: routeLastModified.get(seoRoutes.photoTour) ?? fallbackLastModified,
       changeFrequency: "monthly",
       priority: 0.7,
     },
@@ -114,7 +174,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogIndexPages: MetadataRoute.Sitemap = [
     {
       url: absoluteUrl(seoRoutes.enBlog),
-      lastModified: now,
+      lastModified: latestBlogUpdate,
       changeFrequency: "weekly",
       priority: 0.86,
       alternates: {
@@ -127,7 +187,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: absoluteUrl(seoRoutes.nlBlog),
-      lastModified: now,
+      lastModified: latestBlogUpdate,
       changeFrequency: "weekly",
       priority: 0.89,
       alternates: {

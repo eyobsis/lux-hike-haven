@@ -125,9 +125,9 @@ const HikingGuide = () => {
           <p className="inline-flex items-center rounded-full bg-secondary/10 text-secondary px-4 py-1.5 text-xs font-semibold tracking-wide mb-4">
             Trail Discovery
           </p>
-          <h1 className="section-title text-foreground mb-4">
+          <h2 className="section-title text-foreground mb-4">
             Hiking in Luxembourg: Complete Trail Guide with Maps
-          </h1>
+          </h2>
           <p className="section-subtitle text-muted-foreground max-w-3xl mx-auto">
             Discover Luxembourg's best hiking trails. From scenic riverside
             walks to challenging mountain paths, explore the natural beauty of

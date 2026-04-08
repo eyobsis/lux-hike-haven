@@ -1,9 +1,59 @@
+const DEFAULT_PRODUCTION_URL = "https://luxtraveler.eu";
+const LOCAL_DEVELOPMENT_URL = "http://localhost:3000";
+
+const normalizeSiteUrl = (value: string): string | undefined => {
+  const trimmed = value.trim();
+  if (!trimmed) {
+    return undefined;
+  }
+
+  const withProtocol = /^https?:\/\//i.test(trimmed)
+    ? trimmed
+    : `https://${trimmed}`;
+
+  try {
+    const parsed = new URL(withProtocol);
+    return `${parsed.protocol}//${parsed.host}`;
+  } catch {
+    return undefined;
+  }
+};
+
+const resolveSiteUrl = (): string => {
+  const explicitUrl = normalizeSiteUrl(
+    process.env.NEXT_PUBLIC_SITE_URL ?? process.env.SITE_URL ?? ""
+  );
+
+  if (explicitUrl) {
+    return explicitUrl;
+  }
+
+  const vercelProductionUrl = normalizeSiteUrl(
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ?? ""
+  );
+
+  if (vercelProductionUrl) {
+    return vercelProductionUrl;
+  }
+
+  const vercelDeploymentUrl = normalizeSiteUrl(process.env.VERCEL_URL ?? "");
+  if (vercelDeploymentUrl) {
+    return vercelDeploymentUrl;
+  }
+
+  if (process.env.NODE_ENV !== "production") {
+    return LOCAL_DEVELOPMENT_URL;
+  }
+
+  return DEFAULT_PRODUCTION_URL;
+};
+
 export const siteConfig = {
   siteName: "Lux Traveler",
   brandName: "Lux Traveler Hiking Haven",
   description:
     "Wandelen in Luxemburg (ook gezocht als 'wanderen in Luxembourg') met route-inspiratie en comfortabel verblijf in Grevenmacher. Ideaal voor Nederlandse toeristen.",
-  url: "https://luxtraveler.eu",
+  url: resolveSiteUrl(),
   defaultOgImage: "/Central-stylish/dinning-room.avif",
 };
 

@@ -48,17 +48,43 @@ export const metadata: Metadata = {
 };
 
 export default function DutchTrailsPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Wandelroutes Luxemburg",
-    itemListElement: hikingRoutes.map((route, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: route.name,
-      description: route.summaryNl,
-    })),
-  };
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Wandelroutes Luxemburg",
+      itemListElement: hikingRoutes.map((route, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: route.name,
+        description: route.summaryNl,
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: absoluteUrl(seoRoutes.home),
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Wandelen in Luxemburg",
+          item: absoluteUrl(seoRoutes.nlHub),
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Wandelroutes Luxemburg",
+          item: absoluteUrl(seoRoutes.nlTrails),
+        },
+      ],
+    },
+  ];
 
   return (
     <main lang="nl-NL" className="bg-background pt-24 pb-16">

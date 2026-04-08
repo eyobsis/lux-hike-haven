@@ -83,6 +83,30 @@ export default function DutchMullerthalPage() {
     },
     {
       "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: absoluteUrl(seoRoutes.home),
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Wandelen in Luxemburg",
+          item: absoluteUrl(seoRoutes.nlHub),
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Mullerthal wandeling",
+          item: absoluteUrl(seoRoutes.nlMullerthal),
+        },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "FAQPage",
       mainEntity: faqItems.map((item) => ({
         "@type": "Question",
