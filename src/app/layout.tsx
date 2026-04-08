@@ -4,7 +4,14 @@ import Providers from "./providers";
 import { ReactNode } from "react";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/Footer";
-import { absoluteUrl, seoRoutes, siteConfig } from "@/lib/site";
+import {
+  absoluteUrl,
+  isCanonicalProductionSite,
+  seoRoutes,
+  siteConfig,
+} from "@/lib/site";
+
+const shouldIndex = isCanonicalProductionSite;
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -37,11 +44,11 @@ export const metadata: Metadata = {
     "where to stay for hiking in Luxembourg",
   ],
   robots: {
-    index: true,
-    follow: true,
+    index: shouldIndex,
+    follow: shouldIndex,
     googleBot: {
-      index: true,
-      follow: true,
+      index: shouldIndex,
+      follow: shouldIndex,
       "max-snippet": -1,
       "max-image-preview": "large",
       "max-video-preview": -1,

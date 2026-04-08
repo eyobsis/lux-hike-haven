@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { stat } from "node:fs/promises";
 import { join } from "node:path";
 import { getAllBlogPosts, getBlogPostPairs, getBlogPostPath } from "@/lib/blog";
-import { absoluteUrl, seoRoutes } from "@/lib/site";
+import { absoluteUrl, isCanonicalProductionSite, seoRoutes } from "@/lib/site";
 
 const routeSourceFiles: Record<string, string[]> = {
   [seoRoutes.home]: ["src/app/page.tsx"],
@@ -54,6 +54,10 @@ function getLatestBlogUpdatedAt(): Date {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  if (!isCanonicalProductionSite) {
+    return [];
+  }
+
   const routeLastModifiedEntries = await Promise.all(
     Object.entries(routeSourceFiles).map(async ([route, files]) => {
       const lastModified = await getLatestFileModifiedDate(files);

@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Star, ShieldCheck, Clock, MapPin } from "lucide-react";

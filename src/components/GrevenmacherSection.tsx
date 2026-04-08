@@ -1,11 +1,10 @@
-"use client";
-
 import {
   MapPin,
   Clock,
   Phone,
   ExternalLink,
 } from "lucide-react";
+import Link from "next/link";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
@@ -162,11 +161,17 @@ const GrevenmacherSection = () => {
                   <Button
                     variant="default"
                     size="sm"
+                    asChild
                     className="w-full rounded-lg"
-                    onClick={() => window.open(attraction.website, "_blank")}
                   >
-                    <ExternalLink className="h-4 w-4" />
-                    Visit Official Website
+                    <a
+                      href={attraction.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      Visit Official Website
+                    </a>
                   </Button>
                 </div>
               </CardContent>
@@ -188,22 +193,20 @@ const GrevenmacherSection = () => {
             <Button
               variant="default"
               size="lg"
+              asChild
               className="bg-background text-primary hover:bg-background/90 shadow-lg rounded-lg"
-              onClick={() => window.open(airbnbUrl, "_blank")}
             >
-              Book Now
+              <a href={airbnbUrl} target="_blank" rel="noopener noreferrer">
+                Book Now
+              </a>
             </Button>
             <Button
               variant="outline"
               size="lg"
+              asChild
               className="border-primary-foreground/35 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 shadow-lg rounded-lg"
-              onClick={() =>
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
             >
-              Contact Us
+              <Link href="/#contact">Contact Us</Link>
             </Button>
           </div>
         </div>

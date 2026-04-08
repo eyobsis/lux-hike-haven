@@ -3,6 +3,17 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.luxtraveler.eu",
+          },
+        ],
+        destination: "https://luxtraveler.eu/:path*",
+        permanent: true,
+      },
+      {
         source: "/wandelen-in-luxemburg",
         destination: "/nl/wandelen-in-luxemburg",
         permanent: true,

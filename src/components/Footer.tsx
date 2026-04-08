@@ -1,5 +1,3 @@
-"use client";
-
 import { CalendarDays, Heart, MapPin, Mountain } from "lucide-react";
 import Link from "next/link";
 import { getAirbnbUrl } from "@/lib/links";
@@ -40,13 +38,15 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex flex-col gap-3">
-              <button
-                onClick={() => window.open(airbnbUrl, "_blank")}
+              <Link
+                href={airbnbUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-foreground px-5 py-3 text-sm font-semibold text-primary shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-foreground/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/50 focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
               >
                 <CalendarDays className="h-4 w-4" />
                 Check availability
-              </button>
+              </Link>
               <p className="text-xs text-primary-foreground/60">
                 Instant confirmation via Airbnb.
               </p>

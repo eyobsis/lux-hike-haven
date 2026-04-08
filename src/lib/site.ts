@@ -1,5 +1,6 @@
 const DEFAULT_PRODUCTION_URL = "https://luxtraveler.eu";
 const LOCAL_DEVELOPMENT_URL = "http://localhost:3000";
+const DEFAULT_PRODUCTION_HOST = new URL(DEFAULT_PRODUCTION_URL).host;
 
 const normalizeSiteUrl = (value: string): string | undefined => {
   const trimmed = value.trim();
@@ -71,5 +72,10 @@ export const seoRoutes = {
   nlMullerthal: "/nl/mullerthal-wandeling",
   nlStayNearTrails: "/nl/overnachten-bij-wandelroutes-luxemburg",
 };
+
+export const siteHost = new URL(siteConfig.url).host;
+
+export const isCanonicalProductionSite =
+  process.env.NODE_ENV === "production" && siteHost === DEFAULT_PRODUCTION_HOST;
 
 export const absoluteUrl = (path: string) => new URL(path, siteConfig.url).toString();

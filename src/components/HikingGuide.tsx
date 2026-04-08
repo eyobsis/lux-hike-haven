@@ -1,5 +1,3 @@
-"use client";
-
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -12,6 +10,7 @@ import {
   Car,
   BedDouble,
 } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 import trail1 from "@/assets/trail-1.jpg";
 import trail2 from "@/assets/trail-2.jpg";
@@ -203,13 +202,17 @@ const HikingGuide = () => {
                     <Button
                       size="sm"
                       variant="outline"
-                      onClick={() =>
-                        window.open(trail.officialUrl ?? trail.pdfMap, "_blank")
-                      }
+                      asChild
                       className="flex items-center gap-2 text-xs"
                     >
-                      <ExternalLink className="h-3 w-3" />
-                      Visit Official Site
+                      <a
+                        href={trail.officialUrl ?? trail.pdfMap}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="h-3 w-3" />
+                        Visit Official Site
+                      </a>
                     </Button>
                   </div>
                 </CardContent>
@@ -240,22 +243,20 @@ const HikingGuide = () => {
 
                 <div className="mt-6 flex flex-wrap gap-3">
                   <Button
+                    asChild
                     className="rounded-lg bg-background text-primary hover:bg-background/90"
-                    onClick={() => window.open(airbnbUrl, "_blank")}
                   >
-                    Check Availability
-                    <ExternalLink className="h-4 w-4" />
+                    <a href={airbnbUrl} target="_blank" rel="noopener noreferrer">
+                      Check Availability
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
                   </Button>
                   <Button
                     variant="outline"
+                    asChild
                     className="rounded-lg border-primary-foreground/35 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
-                    onClick={() =>
-                      document
-                        .getElementById("listing")
-                        ?.scrollIntoView({ behavior: "smooth" })
-                    }
                   >
-                    View Apartment Details
+                    <Link href="/#listing">View Apartment Details</Link>
                   </Button>
                 </div>
               </div>
