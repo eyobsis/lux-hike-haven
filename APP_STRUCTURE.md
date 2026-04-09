@@ -1,87 +1,76 @@
 # App Structure
 
+Updated: 2026-04-09
+
+Snapshot command:
+
+```bash
+tree -L 4 -I '.git|node_modules|.next' /workspaces/lux-hike-haven
 ```
-lux-hike-haven/
-|-- .eslintrc.json
-|-- .gitignore
+
+```text
+/workspaces/lux-hike-haven
+|-- APP_STRUCTURE.md
+|-- DEPLOY_INDEXING_CHECKLIST.txt
+|-- README.md
+|-- SEARCH_CONSOLE_SUBMISSION_PLAN.md
+|-- SEO_CLIENT_STATUS.txt
+|-- SEO_CTR_TEST_RUNBOOK.md
+|-- SEO_EXECUTION_STATUS.txt
 |-- airbnbgaery.png
 |-- bun.lockb
 |-- components.json
 |-- eslint.config.js
+|-- global.d.ts
 |-- next-env.d.ts
+|-- next.config.mjs
 |-- package-lock.json
 |-- package.json
 |-- page1.png
 |-- phototour.png
 |-- pnpm-lock.yaml
 |-- postcss.config.js
-|-- README.md
-|-- tailwind.config.ts
-|-- tsconfig.app.json
-|-- tsconfig.json
-|-- public/
-|   |-- Central-stylish/
-|   |   |-- 1e4b906d-5c3d-45a9-87ce-63f81762d010.avif
-|   |   |-- 24b60b66-902c-4a16-9858-5c106b7f55cd.avif
-|   |   |-- 5e01f156-3612-49d9-914c-3c2176d4c9c6.avif
-|   |   |-- dinning-room.avif
-|   |   |-- e13b7deb-e11f-41e1-8a22-e3b1beb379dc.avif
-|   |-- Photo tour/
-|   |   |-- Additional photos.avif
-|   |   |-- Bedroom 1.avif
-|   |   |-- Bedroom 2.avif
-|   |   |-- Bedroom 3.avif
-|   |   |-- Dining area.avif
-|   |   |-- Exterior.avif
-|   |   |-- Full bathroom 1.avif
-|   |   |-- Full bathroom 2.avif
-|   |   |-- Full kitchen.avif
-|   |   |-- Garage.avif
-|   |   |-- Laundry area.avif
-|   |   |-- Workspace.avif
-|   |   |-- living-room.avif
-|   |-- hiking-maps/
-|   |   |-- chemin-de-la-moselle-map.pdf
-|   |   |-- circuit-nature-map.pdf
-|   |   |-- hiking-trail-beaufort-larochette-en.pdf
-|   |   |-- hiking-trail-beaufort-vianden-en.pdf
-|   |   |-- hiking-trail-echternach-beaufort-en.pdf
-|   |   |-- kneff.pdf
-|   |   |-- mullerthal-trail-flyer-gb.pdf
-|   |   |-- sentier-des-passionnés-map.pdf
+|-- public
+|   |-- Central-stylish
+|   |-- Photo tour
 |   |-- favicon.ico
+|   |-- hiking-maps
 |   |-- placeholder.svg
-|   |-- robots.txt
-|   |-- sitemap.xml
-|   |-- site.webmanifest
-|-- src/
-|   |-- app/
+|   `-- site.webmanifest
+|-- src
+|   |-- app
 |   |   |-- App.css
-|   |   |-- NotFound.tsx
+|   |   |-- blog
+|   |   |   `-- page.tsx
+|   |   |-- en
+|   |   |   |-- blog
+|   |   |   |-- hiking-in-luxembourg
+|   |   |   |-- luxembourg-hiking-trails
+|   |   |   `-- page.tsx
 |   |   |-- globals.css
 |   |   |-- layout.tsx
-|   |   |-- not-found-duplicate.tsx
-|   |   |-- page.tsx
-|   |   |-- providers.tsx
-|   |   |-- photo-tour/
+|   |   |-- nl
+|   |   |   |-- beginners-wandelroutes-luxemburg
+|   |   |   |-- blog
+|   |   |   |-- mullerthal-wandeling
+|   |   |   |-- overnachten-bij-wandelroutes-luxemburg
 |   |   |   |-- page.tsx
-|   |-- assets/
-|   |   |-- apartment-interior.jpg
-|   |   |-- butterfly-garden.jpg
-|   |   |-- cinema.jpg
-|   |   |-- cultural-center.jpg
-|   |   |-- grevenmacher-pool.jpg
-|   |   |-- hero-luxembourg.jpg
-|   |   |-- hero-luxembourg-2.jpg
-|   |   |-- hero-luxembourg-3.jpg
-|   |   |-- hero-luxembourg-4.jpg
-|   |   |-- mosel-cruise.jpg
-|   |   |-- trail-1.jpg
-|   |   |-- trail-2.jpg
-|   |   |-- trail-3.jpg
-|   |   |-- trail-4.jpg
-|   |   |-- trail-5.jpg
-|   |-- components/
+|   |   |   |-- regenachtige-dag-luxemburg
+|   |   |   |-- seizoenswandelroutes-luxemburg
+|   |   |   |-- wandelen-in-luxemburg
+|   |   |   |-- wandelen-met-kinderen-luxemburg
+|   |   |   |-- wandelroutes-luxemburg
+|   |   |   `-- wandelweekend-luxemburg
+|   |   |-- not-found.tsx
+|   |   |-- opengraph-image.png
+|   |   |-- page.tsx
+|   |   |-- photo-tour
+|   |   |   `-- page.tsx
+|   |   |-- providers.tsx
+|   |   |-- robots.ts
+|   |   `-- sitemap.ts
+|   |-- assets
+|   |-- components
 |   |   |-- AboutSection.tsx
 |   |   |-- AmenitiesSection.tsx
 |   |   |-- ApartmentSection.tsx
@@ -92,62 +81,20 @@ lux-hike-haven/
 |   |   |-- HeroSection.tsx
 |   |   |-- HikingGuide.tsx
 |   |   |-- ListingDetailSection.tsx
+|   |   |-- RevealOnScroll.tsx
 |   |   |-- SleepSection.tsx
-|   |   |-- ui/
-|   |   |   |-- accordion.tsx
-|   |   |   |-- alert-dialog.tsx
-|   |   |   |-- alert.tsx
-|   |   |   |-- aspect-ratio.tsx
-|   |   |   |-- avatar.tsx
-|   |   |   |-- badge.tsx
-|   |   |   |-- breadcrumb.tsx
-|   |   |   |-- button.tsx
-|   |   |   |-- calendar.tsx
-|   |   |   |-- card.tsx
-|   |   |   |-- carousel.tsx
-|   |   |   |-- chart.tsx
-|   |   |   |-- checkbox.tsx
-|   |   |   |-- collapsible.tsx
-|   |   |   |-- command.tsx
-|   |   |   |-- context-menu.tsx
-|   |   |   |-- dialog.tsx
-|   |   |   |-- drawer.tsx
-|   |   |   |-- dropdown-menu.tsx
-|   |   |   |-- form.tsx
-|   |   |   |-- hover-card.tsx
-|   |   |   |-- input-otp.tsx
-|   |   |   |-- input.tsx
-|   |   |   |-- label.tsx
-|   |   |   |-- menubar.tsx
-|   |   |   |-- navigation-menu.tsx
-|   |   |   |-- navigation.tsx
-|   |   |   |-- pagination.tsx
-|   |   |   |-- popover.tsx
-|   |   |   |-- progress.tsx
-|   |   |   |-- radio-group.tsx
-|   |   |   |-- resizable.tsx
-|   |   |   |-- scroll-area.tsx
-|   |   |   |-- select.tsx
-|   |   |   |-- separator.tsx
-|   |   |   |-- sheet.tsx
-|   |   |   |-- sidebar.tsx
-|   |   |   |-- skeleton.tsx
-|   |   |   |-- slider.tsx
-|   |   |   |-- sonner.tsx
-|   |   |   |-- switch.tsx
-|   |   |   |-- table.tsx
-|   |   |   |-- tabs.tsx
-|   |   |   |-- textarea.tsx
-|   |   |   |-- toast.tsx
-|   |   |   |-- toaster.tsx
-|   |   |   |-- toggle-group.tsx
-|   |   |   |-- toggle.tsx
-|   |   |   |-- tooltip.tsx
-|   |   |   |-- use-toast.ts
-|   |-- hooks/
+|   |   |-- blog
+|   |   `-- ui
+|   |-- hooks
 |   |   |-- use-mobile.tsx
-|   |   |-- use-toast.ts
-|   |-- lib/
-|   |   |-- links.ts
-|   |   |-- utils.ts
+|   |   `-- use-toast.ts
+|   `-- lib
+|       |-- blog.ts
+|       |-- hiking-routes.ts
+|       |-- links.ts
+|       |-- site.ts
+|       `-- utils.ts
+|-- tailwind.config.ts
+|-- tsconfig.app.json
+`-- tsconfig.json
 ```
