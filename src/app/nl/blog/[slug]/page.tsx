@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
           url: post.coverImage,
           width: 1536,
           height: 1024,
-          alt: post.title,
+          alt: post.coverImageAlt ?? post.title,
         },
       ],
     },

@@ -25,6 +25,7 @@ export type BlogPost = {
   excerpt: string;
   description: string;
   coverImage: string;
+  coverImageAlt?: string;
   publishedAt: string;
   updatedAt: string;
   readingMinutes: number;
@@ -968,4 +969,36 @@ export function getBlogPostPairs(): Array<{ key: string; en: BlogPost; nl: BlogP
       return { key, en, nl };
     })
     .filter((pair): pair is { key: string; en: BlogPost; nl: BlogPost } => Boolean(pair));
+}
+
+function countSharedTerms(left: string[], right: string[]): number {
+  const normalizedRight = new Set(right.map((term) => term.toLowerCase()));
+  return left.reduce((total, term) => {
+    return total + (normalizedRight.has(term.toLowerCase()) ? 1 : 0);
+  }, 0);
+}
+
+export function getRelatedBlogPosts(post: BlogPost, limit = 3): BlogPost[] {
+  return getBlogPosts(post.locale)
+    .filter((candidate) => candidate.slug !== post.slug)
+    .map((candidate) => {
+      const sharedTags = countSharedTerms(candidate.tags, post.tags);
+      const sharedKeywords = countSharedTerms(
+        candidate.secondaryKeywords,
+        post.secondaryKeywords
+      );
+      const sameCategoryBonus = candidate.category === post.category ? 2 : 0;
+      const score = sharedTags * 3 + sharedKeywords * 2 + sameCategoryBonus;
+
+      return { candidate, score };
+    })
+    .sort((a, b) => {
+      if (b.score !== a.score) {
+        return b.score - a.score;
+      }
+
+      return +new Date(b.candidate.publishedAt) - +new Date(a.candidate.publishedAt);
+    })
+    .slice(0, limit)
+    .map(({ candidate }) => candidate);
 }

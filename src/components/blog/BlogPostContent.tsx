@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowUpRight, CalendarDays, Clock3, Globe2 } from "lucide-re
 import {
   getBlogIndexPath,
   getBlogPostPath,
-  getBlogPosts,
+  getRelatedBlogPosts,
   type BlogLocale,
   type BlogPost,
 } from "@/lib/blog";
@@ -25,16 +25,41 @@ const formatDate = (locale: BlogLocale, date: string) =>
     year: "numeric",
   }).format(new Date(date));
 
+const createSectionAnchors = (sections: BlogPost["sections"]) => {
+  const usedIds = new Map<string, number>();
+
+  return sections.map((section, index) => {
+    const normalized = section.title
+      .toLowerCase()
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9\s-]/g, "")
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-");
+
+    const baseId = normalized || `section-${index + 1}`;
+    const currentCount = usedIds.get(baseId) ?? 0;
+    usedIds.set(baseId, currentCount + 1);
+
+    return {
+      ...section,
+      id: currentCount === 0 ? baseId : `${baseId}-${currentCount + 1}`,
+    };
+  });
+};
+
 export default function BlogPostContent({
   post,
   locale,
   translatedPost,
 }: BlogPostContentProps) {
-  const relatedPosts = getBlogPosts(locale)
-    .filter((candidate) => candidate.slug !== post.slug)
-    .slice(0, 3);
+  const relatedPosts = getRelatedBlogPosts(post, 3);
+  const sectionAnchors = createSectionAnchors(post.sections);
 
   const bookingUrl = getAirbnbUrl(`${locale}-blog-post`, post.slug);
+  const showUpdatedDate =
+    new Date(post.updatedAt).getTime() > new Date(post.publishedAt).getTime();
 
   return (
     <main lang={locale === "nl" ? "nl-NL" : "en"} className="bg-background pt-24 pb-16">
@@ -70,15 +95,21 @@ export default function BlogPostContent({
               <div className="mt-6 flex flex-wrap gap-4 text-sm text-muted-foreground">
                 <span className="inline-flex items-center gap-1.5">
                   <CalendarDays className="h-4 w-4" />
-                  {formatDate(locale, post.publishedAt)}
+                  {locale === "nl" ? "Gepubliceerd" : "Published"}: {formatDate(locale, post.publishedAt)}
+                </span>
+                {showUpdatedDate && (
+                  <span className="inline-flex items-center gap-1.5">
+                    <CalendarDays className="h-4 w-4" />
+                    {locale === "nl" ? "Bijgewerkt" : "Updated"}: {formatDate(locale, post.updatedAt)}
+                  </span>
+                )}
+                <span className="inline-flex items-center gap-1.5">
+                  <Globe2 className="h-4 w-4" />
+                  {locale === "nl" ? "Nederlandse SEO focus" : "Dutch-intent SEO focus"}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <Clock3 className="h-4 w-4" />
                   {post.readingMinutes} min
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Globe2 className="h-4 w-4" />
-                  {locale === "nl" ? "Nederlandse SEO focus" : "Dutch-intent SEO focus"}
                 </span>
               </div>
 
@@ -113,14 +144,14 @@ export default function BlogPostContent({
               </div>
             </article>
 
-            <div className="relative h-72 overflow-hidden rounded-3xl border border-border/70 shadow-soft lg:h-full">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-border/70 shadow-soft lg:aspect-[5/4]">
               <Image
                 src={post.coverImage}
-                alt={post.title}
+                alt={post.coverImageAlt ?? post.title}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/5" />
             </div>
@@ -130,22 +161,23 @@ export default function BlogPostContent({
 
       <section className="section-divider section-parallax-soft section-reveal container mx-auto grid gap-8 px-4 pt-12 sm:px-6 lg:grid-cols-[1.35fr_0.85fr] lg:px-8">
         <article className="section-reveal space-y-8">
-          {post.sections.map((section, index) => (
+          {sectionAnchors.map((section, index) => (
             <section
-              key={section.title}
+              key={section.id}
+              id={section.id}
               className="section-reveal rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8"
               style={{ animationDelay: `${index * 0.08}s` }}
             >
               <h2 className="text-2xl font-bold text-foreground md:text-3xl">{section.title}</h2>
               <div className="mt-4 space-y-4 text-base leading-relaxed text-muted-foreground">
-                {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                {section.paragraphs.map((paragraph, paragraphIndex) => (
+                  <p key={`${section.id}-p-${paragraphIndex}`}>{paragraph}</p>
                 ))}
               </div>
               {section.bullets && (
                 <ul className="mt-5 space-y-2 text-sm text-foreground">
-                  {section.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2">
+                  {section.bullets.map((bullet, bulletIndex) => (
+                    <li key={`${section.id}-b-${bulletIndex}`} className="flex items-start gap-2">
                       <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary" />
                       <span>{bullet}</span>
                     </li>
@@ -173,6 +205,25 @@ export default function BlogPostContent({
         </article>
 
         <aside className="section-reveal section-reveal-delay space-y-6">
+          <section className="rounded-3xl border border-border bg-card p-6 shadow-soft">
+            <h2 className="text-lg font-bold text-foreground">
+              {locale === "nl" ? "In dit artikel" : "In this article"}
+            </h2>
+            <ol className="mt-4 space-y-2 text-sm text-muted-foreground">
+              {sectionAnchors.map((section, index) => (
+                <li key={`toc-${section.id}`}>
+                  <Link
+                    href={`#${section.id}`}
+                    className="inline-flex items-start gap-2 transition-colors hover:text-primary"
+                  >
+                    <span className="font-semibold text-foreground">{index + 1}.</span>
+                    <span>{section.title}</span>
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          </section>
+
           <section className="rounded-3xl border border-border bg-card p-6 shadow-soft">
             <h2 className="text-lg font-bold text-foreground">
               {locale === "nl" ? "Quick SEO focus" : "Quick SEO focus"}
@@ -269,6 +320,15 @@ export default function BlogPostContent({
                   className="section-reveal group rounded-2xl border border-border/70 bg-background p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30"
                   style={{ animationDelay: `${index * 0.08}s` }}
                 >
+                  <div className="relative mb-3 aspect-[16/9] overflow-hidden rounded-xl border border-border/60">
+                    <Image
+                      src={related.coverImage}
+                      alt={related.coverImageAlt ?? related.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 30vw"
+                      className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-primary">{related.category}</p>
                   <h3 className="mt-2 text-base font-bold leading-snug text-foreground group-hover:text-primary">
                     {related.title}

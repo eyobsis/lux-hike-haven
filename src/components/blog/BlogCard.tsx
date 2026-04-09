@@ -35,13 +35,19 @@ export default function BlogCard({
       <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.08] via-transparent to-secondary/[0.08] opacity-70" />
 
       <div className={featured ? "grid md:grid-cols-2" : ""}>
-        <div className={featured ? "relative h-64 md:h-full" : "relative h-52"}>
+        <div
+          className={
+            featured
+              ? "relative aspect-[16/10] md:aspect-[4/3] md:self-start"
+              : "relative aspect-[16/10]"
+          }
+        >
           <Image
             src={post.coverImage}
-            alt={post.title}
+            alt={post.coverImageAlt ?? post.title}
             fill
             sizes={featured ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
           <div className="absolute left-4 top-4 inline-flex rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md">
